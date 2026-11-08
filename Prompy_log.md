@@ -468,3 +468,28 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Thực hiện khảo sát 7 người tham gia thực tế cho **Task 2 (Usability Evaluation - 40 điểm)** và dùng `calculate_sus.js` để tổng hợp điểm SUS.
 
 ---
+
+## [Prompt #19] - 2026-11-09 00:10:47
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bạn ko đc viết AI critique
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Xóa ngay nội dung phần **Mục 6: Đánh giá Phản biện AI (AI Critique - 200–300 Từ)** do AI tự viết trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) để trả về khung trống cho sinh viên tự viết phản biện cá nhân.
+  - Bổ sung quy tắc cấm AI tự viết phần `AI Critique` vào [`AGENTS.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AGENTS.md).
+  - Cập nhật cột **(5) Bản SV sửa** của `Artifact #4` trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), xuất lại [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt) và đồng bộ lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chỉnh sửa Mục 6 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) về dòng ghi chú trống dành riêng cho sinh viên tự viết.
+  - Thêm mục **4. Không tự viết phần AI Critique** vào [`AGENTS.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AGENTS.md).
+  - Cập nhật [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) và [`Prompy_log.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Prompy_log.md).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Đã xóa hoàn toàn đoạn văn `AI Critique` do AI viết trong `Main_report.md` và cập nhật quy tắc bảo vệ trong `AGENTS.md`.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Kiểm soát ranh giới trách nhiệm giữa Sinh viên và AI).
+  - Bước tiếp theo: Sinh viên tự viết đoạn phản biện 200–300 từ tại Mục 6 của `Main_report.md` và thực hiện khảo sát Task 2.
+
+---

@@ -2,11 +2,24 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-08T17:08:47.606Z
+Generated At: 2026-11-08T17:13:28.538Z
 ======================================================================
 
 ======================================================================
-Commit Hash : ef3091d5d10e3ae0014871d40c702eae22fb01aa
+Commit Hash : b9de272e1774d5109d8b9a8af1d15397c5609aa1
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-09 00:13:28 +0700
+Subject     : fix(report): remove AI-generated critique and add rule in AGENTS.md
+
+ AGENTS.md          |  4 +++-
+ AI_Audit_Report.md |  2 +-
+ Git_Commit_Log.txt |  8 ++++----
+ Main_report.md     |  9 +--------
+ Prompy_log.md      | 25 +++++++++++++++++++++++++
+ 5 files changed, 34 insertions(+), 14 deletions(-)
+
+======================================================================
+Commit Hash : 5617808111dcca48a17a2cae00ba3510f3637613
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-09 00:08:47 +0700
 Subject     : feat(skills): build gui-usability-tester and ai-audit-logger agent skills with live FR-18 demo
@@ -19,7 +32,7 @@ Subject     : feat(skills): build gui-usability-tester and ai-audit-logger agent
  .../scripts/audit_screen_cli.js                    | 164 ++++++++++++++++++++
  .../gui-usability-tester/scripts/calculate_sus.js  |  77 ++++++++++
  AI_Audit_Report.md                                 |   1 +
- Git_Commit_Log.txt                                 | 136 +++++++++++++++++
+ Git_Commit_Log.txt                                 | 164 ++++++++++++++++++++
  Main_report.md                                     |  67 ++++++++-
  Prompy_log.md                                      |  27 ++++
  screenshots/skill_demo/skill_audit_report.json     |  24 +++
@@ -31,7 +44,7 @@ Subject     : feat(skills): build gui-usability-tester and ai-audit-logger agent
  .../resources/usability_sus_template.md            |  37 +++++
  .../scripts/audit_screen_cli.js                    | 165 +++++++++++++++++++++
  .../gui-usability-tester/scripts/calculate_sus.js  |  78 ++++++++++
- 20 files changed, 1202 insertions(+), 6 deletions(-)
+ 20 files changed, 1230 insertions(+), 6 deletions(-)
 
 ======================================================================
 Commit Hash : b9074144107bf1e72fa2aaa14ad119c734c1e5a6
