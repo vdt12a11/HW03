@@ -114,3 +114,4 @@ Checklist được chia đều trên 4 khía cạnh giao diện chuẩn của đ
 | 3 | **Task 3:** Cross-Browser / Platform ($\ge$ 3 platforms) | 20 | - | Ảnh chụp màn hình có watermark 3 nền tảng |
 | 4 | **Agent Skills:** Kỹ năng tự động hóa và Video Demo | 10 | - | Mã nguồn skill + Video YouTube |
 | **TỔNG** | | **100** | **-** | |
+

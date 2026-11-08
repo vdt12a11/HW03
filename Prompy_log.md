@@ -181,3 +181,29 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Tiếp theo: Thiết kế nội dung chi tiết Task 1 (> 40 items GUI Checklist).
 
 ---
+## [Prompt #8] - 2026-11-08 22:40:09
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Cái này chưa được coi là artifact
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Tiếp thu phản hồi chính xác của người dùng: khung sườn tài liệu `Main_report.md` chỉ là scaffold/setup, chưa phải là sản phẩm kiểm thử cụ thể (Test Artifact).
+  - Thu hồi / xóa dòng `Artifact #1` vừa thêm vào trong `AI_Audit_Report.md`.
+  - Cập nhật định nghĩa rõ ràng trong `AGENTS.md` về những gì được xem là Test Artifact (chỉ gồm: GUI Checklist, Task Scenario, SUS Questionnaire, Bug Report, Cross-platform cases...).
+  - Thực hiện commit điều chỉnh.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Đã xóa dòng `Artifact #1: Main Report Scaffold` khỏi [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Cập nhật định nghĩa khắt khe tại Mục 1.B trong [`AGENTS.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AGENTS.md).
+  - Ghi bản ghi Prompt #8 vào `Prompy_log.md`.
+  - Thực hiện Git commit để đồng bộ lịch sử.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bảng Kiểm toán AI trở về trạng thái sạch, sẵn sàng ghi nhận đúng các artifact kiểm thử thực chất tiếp theo.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Tiếp thu phản hồi phản biện từ sinh viên để chuẩn hóa định nghĩa artifact).
+  - Khi người dùng yêu cầu sinh GUI Checklist, đó sẽ là `Artifact #1` chính thức đầu tiên.
+
+---

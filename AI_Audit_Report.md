@@ -34,7 +34,7 @@
 
 | (1) Prompt + Công cụ | (2) Output AI | (3) Verdict | (4) Lý do (ISTQB / Tiêu chuẩn GUI) | (5) Bản SV sửa (Human Review & Changes) |
 |:---|:---|:---:|:---|:---|
-| **Artifact #1: Main Report Scaffold**<br>**Tool:** Antigravity (Gemini 3.8 Flash)<br>**Thời gian:** 2026-11-08 22:34:42<br>**Prompt:** `tạo file main report` | Khởi tạo cấu trúc tài liệu [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) bao gồm đầy đủ 7 chương chuẩn hóa theo Rubric 100 điểm của HW03 (Task 1 GUI, Task 2 Usability, Task 3 Cross-platform, Task 4 Agent Skill, AI Critique và Bảng tự đánh giá). | `VALID` | Cấu trúc khớp 100% với mục 6, 8, 9, 10, 14 và 15 của đề bài HW03. Phân chia rõ ràng các phạm vi IA-01 đến IA-04 và các tiêu chí đánh giá. | Đã rà soát các đề mục, bổ sung phần thông tin SUT chi tiết và bảng rubric tự chấm điểm. |
+| *Chưa có artifact kiểm thử nào được sinh. Sẽ được tự động cập nhật ngay khi sinh artifact kiểm thử thực tế đầu tiên (như GUI Checklist, Task Scenario, SUS Questionnaire, Bug Report...).* | - | - | - | - |
 
 ---
 

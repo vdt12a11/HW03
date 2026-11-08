@@ -17,9 +17,17 @@ Mỗi tương tác prompt của người dùng phải được lưu ngay lập t
 - **AI Output:** Tóm tắt kết quả trả về.
 - **Bloom-AI Level & Next Steps:** Đánh giá cấp độ Bloom-AI (G9.3 Analyse, G9.4 Collaborate) và bước tiếp theo.
 
-### B. TỰ ĐỘNG GHI / CẬP NHẬT VÀO [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) KHI CÓ ARTIFACT HOẶC CHỈNH SỬA
-Mỗi khi sinh ra một **Artifact mới** (hoặc chỉnh sửa nội dung artifact) liên quan đến kiểm thử (ví dụ: GUI Checklist, Task Scenario, SUS Questionnaire, Bug Report, Test Plan, Kịch bản chạy...):
-Agent **BẮT BUỘC** phải tự động ghi/bổ sung một dòng vào **Bảng Kiểm toán 5 cột** trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) theo chuẩn FIT@HCMUS:
+### B. TỰ ĐỘNG GHI / CẬP NHẬT VÀO [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) KHI CÓ ARTIFACT KIỂM THỬ THỰC TẾ
+Chỉ những **sản phẩm kiểm thử cụ thể (Test Artifacts)** mới được ghi vào Bảng Kiểm toán 5 cột trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), bao gồm:
+- Bộ tiêu chí kiểm thử giao diện (GUI Checklist ban đầu do AI sinh).
+- Bổ sung / chỉnh sửa checklist sau Human Review.
+- Kịch bản đo lường trải nghiệm người dùng (Task Scenario).
+- Thang đo bảng hỏi Usability (SUS / UEQ-S Questionnaire).
+- Báo cáo lỗi giao diện (Bug Reports & GitHub Issues).
+- Kịch bản kiểm thử đa nền tảng (Cross-platform Test Cases).
+*(Lưu ý: Các thao tác thiết lập khung sườn tài liệu, file rỗng, lệnh cài đặt ban đầu hoặc git init KHÔNG được tính là test artifact).*
+
+Mỗi khi sinh hoặc chỉnh sửa một test artifact, Agent **BẮT BUỘC** phải tự động thêm một dòng vào Bảng Kiểm toán 5 cột theo chuẩn FIT@HCMUS:
 
 ```markdown
 | (1) Prompt + Công cụ | (2) Output AI | (3) Verdict | (4) Lý do (ISTQB / Tiêu chuẩn GUI) | (5) Bản SV sửa (Human Review & Changes) |
