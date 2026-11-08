@@ -287,3 +287,28 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước kế tiếp: Sinh viên thực hiện **Human Review** (Mục 2.2) để bổ sung các tiêu chí AI còn thiếu sót và bắt đầu thực thi (Execution).
 
 ---
+## [Prompt #12] - 2026-11-08 22:55:00
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Continue (Hoàn thiện phần Human Review 2.2 cho Task 1)
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Hoàn thiện Mục 2.2 trong `Main_report.md`: Phân tích nguyên nhân vì sao AI bỏ sót và bổ sung **8 tiêu chí kiểm thử chuyên sâu** (`CHK-HUM-01` → `CHK-HUM-08`) về Accessibility (WCAG 2.1), Responsive Layout, System Dark Mode, Double-click Debounce, Keyboard Focus Ring và React State Persistence.
+  - Cập nhật cột (5) Bản SV sửa của **Artifact #1** trong `AI_Audit_Report.md`.
+  - Thực hiện Git commit theo quy định.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Cập nhật mục 2.2 vào [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) nâng tổng số checklist lên **52 items**.
+  - Cập nhật chi tiết phần chỉnh sửa/bổ sung của sinh viên vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Ghi bản ghi Prompt #12 vào `Prompy_log.md`.
+  - Chạy lệnh Git commit.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bộ GUI Checklist hoàn chỉnh gồm 52 items (44 do AI sinh + 8 do Sinh viên phản biện bổ sung kèm giải thích nguyên nhân sâu sắc).
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Phản biện sâu hạn chế của mô hình ngôn ngữ lớn trong kiểm thử GUI).
+  - Bước tiếp theo: Thực thi (Execute) 52 tiêu chí này trên SUT EShop để ghi nhận Pass/Fail và lập Bug Report.
+
+---

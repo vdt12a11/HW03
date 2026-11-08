@@ -107,8 +107,25 @@ Bộ tiêu chí bao gồm **44 mục kiểm thử**, được phân bố đều 
 | 43 | `CHK-IA04-11` | IA-04 | FR-17: Coupons | Khi tạo mã coupon bị lỗi (ví dụ mã đã tồn tại), hiển thị thông báo lỗi cụ thể từ máy chủ. | - | *Chờ thực thi trên SUT* |
 | 44 | `CHK-IA04-12` | IA-04 | Toàn hệ thống | Khi token đăng nhập hết hạn hoặc bị lỗi 401/403, tự động chuyển về trang đăng nhập có báo lỗi. | - | *Chờ thực thi trên SUT* |
 
-### 2.2. Human Review & Bổ sung các điểm AI bỏ sót
-*(Phần rà soát của sinh viên chỉ ra các yếu tố WCAG 2.1, Mobile Responsiveness, Phím tắt, Cắt chữ overflow mà AI bỏ quên)*
+### 2.2. Human Review & Phản biện các điểm AI bỏ sót (Student's Critical Review & Additions)
+
+#### A. Phân tích nguyên nhân tại sao AI bỏ sót (Why the AI Missed These Items):
+1. **Thiên kiến dựa trên cấu trúc tĩnh (Code-Driven Bias):** AI sinh checklist chủ yếu dựa trên các thẻ HTML/JSX hiện diện tường minh trong mã nguồn (`<input>`, `<button>`, `<table>`). Do đó, AI bỏ qua các thuộc tính phi chức năng ẩn như độ tương phản màu sắc thực tế trên màn hình hoặc khả năng tương thích với trình đọc màn hình (Screen Reader).
+2. **Thiếu bối cảnh môi trường hiển thị động (Lack of Viewport & Rendering Context):** AI không trực tiếp "nhìn" thấy giao diện khi thu nhỏ cửa sổ trình duyệt xuống kích thước Mobile/Tablet (375px - 768px) hoặc khi bật chế độ Dark Mode của hệ điều hành, dẫn đến bỏ sót các lỗi vỡ khung (overflow) và che khuất thanh điều hướng (Sidebar cố định `w-64`).
+3. **Bỏ qua hành vi tương tác bất thường của người dùng (Edge-case Micro-interactions):** AI giả định người dùng luôn bấm chuột đơn lẻ tuần tự, nên quên kiểm tra các kịch bản thực tế như nhấn đúp liên tục (Double-click / Rapid-click) vào nút "Lưu sản phẩm" hoặc "Tạo mã" gây gửi trùng lặp request API.
+
+#### B. Danh sách 8 Tiêu chí Kiểm thử do Sinh viên Bổ sung (Human-Added Checklist Items):
+
+| STT | Mã Tiêu Chí (Item ID) | Khía Cạnh (Aspect) | Phân Hệ / Chức Năng | Mục Tiêu Kiểm Thử Bổ Sung (Human-Added Item) | Lý Do AI Bỏ Sót (Reason AI Missed It) | Kết Quả (Pass/Fail) | Ghi Chú & Bằng Chứng Lỗi |
+|:---:|:---|:---:|:---|:---|:---|:---:|:---|
+| 45 | `CHK-HUM-01` | IA-01 (Accessibility) | Toàn hệ thống | Tỷ lệ tương phản màu (Color Contrast Ratio) giữa chữ và nền đạt chuẩn **WCAG 2.1 AA ($\ge$ 4.5:1)**, đặc biệt là chữ xám trên nền trắng và chữ trắng trên nút vàng (`bg-yellow-500`). | AI không tính toán giá trị mã màu Hex thực tế khi render nên bỏ qua chuẩn tương phản thị giác WCAG. | - | *Chờ thực thi trên SUT* |
+| 46 | `CHK-HUM-02` | IA-02 (Accessibility) | FR-14, 15, 17 | Tất cả các ô `<input>` và `<select>` phải có thẻ `<label>` liên kết (`htmlFor`) hoặc thuộc tính `aria-label` để hỗ trợ trình đọc màn hình (Screen Reader), thay vì chỉ dùng `placeholder`. | Prompt ban đầu chưa nhấn mạnh tiêu chuẩn hỗ trợ người khuyết tật (A11y); AI chỉ kiểm tra sự tồn tại của `placeholder`. | - | *Chờ thực thi trên SUT* |
+| 47 | `CHK-HUM-03` | IA-01 (Responsive) | Toàn hệ thống | Khi thu nhỏ màn hình xuống kích thước Mobile/Tablet (< 768px), thanh Sidebar (`w-64`) phải tự động thu gọn thành Hamburger Menu thay vì chiếm cứng chiều ngang làm hẹp vùng nội dung. | AI đọc cấu trúc CSS tĩnh mà không mô phỏng thay đổi kích thước khung nhìn (Viewport resizing). | - | *Chờ thực thi trên SUT* |
+| 48 | `CHK-HUM-04` | IA-01 (Responsive) | FR-15 & FR-17 | Các bảng dữ liệu nhiều cột (Bảng Sản phẩm, Bảng Mã giảm giá 7 cột) phải có thanh cuộn ngang (`overflow-x-auto`) trên màn hình nhỏ, không làm vỡ layout trang. | AI mặc định kiểm thử trên màn hình Desktop rộng nên bỏ sót hiện tượng tràn bảng (Table Horizontal Overflow). | - | *Chờ thực thi trên SUT* |
+| 49 | `CHK-HUM-05` | IA-01 (Dark Mode / RTL) | Toàn hệ thống | Khi trình duyệt/hệ điều hành bật **Dark Mode**, màu chữ trong các ô `<input>` và `<select>` không bị biến thành chữ trắng trên nền trắng gây mù chữ. | AI không kiểm thử sự xung đột giữa CSS mặc định của hệ thống (System Theme) và các class Tailwind thiếu khai báo màu chữ tường minh. | - | *Chờ thực thi trên SUT* |
+| 50 | `CHK-HUM-06` | IA-04 (Micro-interaction) | FR-14, 15, 17 | Chống gửi trùng lặp (Debounce / Disable on Submit): Khi nhấn đúp liên tục (Rapid double-click) vào nút "Thêm mới", "Lưu sản phẩm" hoặc "Tạo mã", nút phải bị khóa tạm thời để không tạo ra 2 bản ghi trùng nhau. | AI chỉ xét luồng sự kiện đơn lẻ (Happy path click) mà bỏ qua độ trễ mạng thực tế khi người dùng bấm liên tiếp. | - | *Chờ thực thi trên SUT* |
+| 51 | `CHK-HUM-07` | IA-03 (Keyboard UX) | Toàn hệ thống | Khi di chuyển bằng bàn phím (`Tab` / `Shift+Tab`), phần tử đang được chọn phải có đường viền **Focus Ring (`outline`)** rõ nét để người dùng không dùng chuột biết mình đang ở đâu. | AI chỉ nêu khái niệm Tab order chung chung mà quên mất yêu cầu hiển thị trạng thái `:focus-visible` trực quan. | - | *Chờ thực thi trên SUT* |
+| 52 | `CHK-HUM-08` | IA-04 (State Persistence) | FR-15: Products | Sau khi sửa một sản phẩm trong bảng, dữ liệu hiển thị của các sản phẩm khác phải được bảo toàn nguyên vẹn (không bị ghi đè nhầm tên hoặc trạng thái trên giao diện). | AI không đi sâu vào lỗi logic thao tác state cục bộ đặc thù của React (`products.map` ghi đè hàng loạt trong code SUT). | - | *Chờ thực thi trên SUT* |
 
 ### 2.3. Bảng Kết quả Thực thi Checklist (Execution Summary)
 *(Tổng hợp số lượng Passed / Failed)*
