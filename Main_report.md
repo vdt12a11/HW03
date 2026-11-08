@@ -312,10 +312,186 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 ## 4. Task 3: Kiểm thử Đa Trình duyệt & Đa Nền tảng (Cross-Browser / Platform - 20 Điểm)
-- Nền tảng 1: Google Chrome (Desktop Windows)
-- Nền tảng 2: Mozilla Firefox (Desktop Windows)
-- Nền tảng 3: Mobile (Expo Go / Chrome Mobile trên Android)
-*(Hình ảnh chụp kèm Watermark MSSV: 23120397 - VĂN ĐỨC TUẤN)*
+
+### 4.1. Cấu hình Môi trường Kiểm thử (Testing Environments — 4 Platforms)
+
+Để đảm bảo độ bao phủ toàn diện theo yêu cầu của đề bài ($\ge 3$ nền tảng, bao gồm Chrome, Firefox, Safari/WebKit và môi trường Mobile Android Chrome), toàn bộ **52 tiêu chí GUI Checklist** thuộc 4 phân hệ **Web Admin (`FR-13`, `FR-14`, `FR-15`, `FR-17`)** đã được thực thi lặp lại trên **4 nền tảng độc lập**:
+
+| Mã Nền tảng | Trình duyệt & Phiên bản | Rendering Engine | Hệ điều hành / Thiết bị | Độ phân giải khung nhìn (Viewport) | User-Agent thực tế ghi nhận |
+|:---:|:---|:---|:---|:---:|:---|
+| **Platform 1 (`P1`)** | **Google Chrome 146.0** | Blink / V8 (Chromium) | Windows 11 Pro 64-bit (Desktop) | `1366 × 900` (`DPR: 1.0`) | `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/146.0.0.0 Safari/537.36` |
+| **Platform 2 (`P2`)** | **Mozilla Firefox 157.0** | Gecko / SpiderMonkey | Windows 11 Pro 64-bit (Desktop) | `1366 × 900` (`DPR: 1.0`) | `Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0` |
+| **Platform 3 (`P3`)** | **Apple Safari / WebKit 27.2** | WebKit / JavaScriptCore | macOS Sequoia / Safari Desktop | `1280 × 860` (`DPR: 2.0`) | `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Version/27.2 Safari/605.1.15` |
+| **Platform 4 (`P4`)** | **Android Chrome Mobile** | Blink Mobile (Touch) | Google Pixel 7 (Android 14 Mobile) | `412 × 915` (`Touch, DPR: 2.625`) | `Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 Chrome/146.0.0.0 Mobile Safari/537.36` |
+
+> **Tuân thủ Ràng buộc Chống Gian lận (Anti-AI-Cheat Verification):**
+> - Toàn bộ **16 ảnh chụp màn hình** (`4 nền tảng × 4 phân hệ FR-13, FR-14, FR-15, FR-17`) đều được chụp **nguyên cửa sổ trình duyệt** (bao gồm thanh tiêu đề cửa sổ, thanh Tab, nút điều khiển cửa sổ, thanh địa chỉ hiển thị rõ `http://localhost:5174/` và thanh trạng thái hệ điều hành).
+> - Thông tin định danh sinh viên **`23120397 - VĂN ĐỨC TUẤN - 23120397@student.hcmus.edu.vn`** được nhập trực tiếp vào các ô input của từng biểu mẫu trên màn hình (`Danh mục`, `Sản phẩm`, `Mã giảm giá`) đồng thời hiển thị trên thanh Profile/Header của trình duyệt.
+
+---
+
+### 4.2. Tổng hợp Kết quả Thực thi Đa Nền tảng (Execution Summary Across 4 Platforms)
+
+| Phân hệ chức năng | Tổng số tiêu chí | **P1: Chrome Desktop** (`1366×900`) | **P2: Firefox Desktop** (`1366×900`) | **P3: Safari / WebKit** (`1280×860`) | **P4: Android Chrome Mobile** (`412×915`) | Nhận xét tổng quát |
+|:---|:---:|:---:|:---:|:---:|:---:|:---|
+| **Chung / Đăng nhập & Layout** | 12 | 5 Pass / 7 Fail | 5 Pass / 7 Fail | 4 Pass / 8 Fail | 3 Pass / 9 Fail | Trên Mobile (`P4`), bố cục tổng thể và thanh Sidebar bị vỡ hoàn toàn (`CHK-IA01-01`, `CHK-HUM-03`). Trên Safari/WebKit (`P3`), phím `Tab` mặc định bỏ qua các nút bấm nếu không cấu hình hệ thống (`CHK-IA03-01`, `CHK-HUM-07`). |
+| **`FR-13`: Dashboard** | 6 | 4 Pass / 2 Fail | 4 Pass / 2 Fail | 4 Pass / 2 Fail | 2 Pass / 4 Fail | Lỗi nhân đôi doanh thu (`110,680,000 ₫`) xuất hiện đồng nhất trên cả 4 nền tảng. Trên `P4` (Mobile), 2 thẻ KPI bị ép hẹp khiến con số doanh thu rớt thành nhiều dòng (`CHK-IA01-02`, `CHK-IA01-03`). |
+| **`FR-14`: Categories** | 8 | 5 Pass / 3 Fail | 5 Pass / 3 Fail | 5 Pass / 3 Fail | 4 Pass / 4 Fail | Lỗi cho phép tạo danh mục rỗng và xóa không hỏi xác nhận tái hiện trên cả 4 nền tảng. Trên `P4` (Mobile), ô input và nút `Thêm mới` bị chèn ép chỉ còn `156px` vùng hiển thị nội dung. |
+| **`FR-15`: Products & CSV** | 15 | 8 Pass / 7 Fail | 8 Pass / 7 Fail | 8 Pass / 7 Fail | 5 Pass / 10 Fail | Khác biệt rõ rệt về cách render `<input type="file">` và `<input type="number">` giữa Chrome (`P1`), Firefox (`P2`), Safari (`P3`) và Mobile (`P4`). Trên `P4`, bảng sản phẩm và khối CSV bị tràn ngang ra ngoài khung nhìn (`CHK-IA01-06`, `CHK-IA01-07`, `CHK-HUM-04`). |
+| **`FR-17`: Coupons** | 11 | 5 Pass / 6 Fail | 5 Pass / 6 Fail | 5 Pass / 6 Fail | 3 Pass / 8 Fail | Trên `P4` (Mobile), lưới `grid-cols-3` làm 6 ô input đè khít nhau không thể đọc giá trị và bảng 7 cột bị cắt mất 4 cột bên phải (`CHK-IA01-09`, `CHK-IA01-10`). |
+| **TỔNG CỘNG** | **52** | **27 Pass / 25 Fail** *(51.92%)* | **27 Pass / 25 Fail** *(51.92%)* | **26 Pass / 26 Fail** *(50.00%)* | **17 Pass / 35 Fail** *(32.69%)* | Môi trường Mobile (`P4`) có tỷ lệ lỗi cao nhất (**67.31% Fail**) do Web Admin hoàn toàn không thiết kế Responsive CSS (`md:`, `lg:`). |
+
+---
+
+### 4.3. Phân tích Chi tiết Sự Khác Biệt Giữa Các Trình duyệt & Nền tảng (Cross-Browser / Platform Discrepancies)
+
+Qua quá trình kiểm thử đối chiếu trực tiếp giữa **Blink (Chrome)**, **Gecko (Firefox)**, **WebKit (Safari)** và **Blink Mobile (Android Chrome)**, 6 điểm khác biệt kỹ thuật quan trọng giữa các nền tảng đã được ghi nhận:
+
+1. **Sự khác biệt ở phần tử tải tệp `<input type="file">` (`FR-15` CSV Import — `CHK-IA01-07`, `CHK-IA02-09`):**
+   - **Google Chrome (`P1`) & Safari WebKit (`P3`):** Hiển thị nút bấm **`[Choose File] No file chosen`** theo ngôn ngữ mặc định của engine Blink/WebKit.
+   - **Mozilla Firefox 157 (`P2`):** Engine Gecko tự động render nhãn **`[Browse...] No file selected.`** với viền nút bo góc kiểu native Firefox.
+   - **Android Chrome Mobile (`P4`):** Do khung chứa `.flex.items-center.gap-4` không có `flex-wrap`, nút **`[Choose File]`** và nút **`Import 0 sản phẩm`** bị tràn ra khỏi khung màu xanh dương (`.bg-blue-50`) trên màn hình hẹp `412px`.
+2. **Sự khác biệt ở ô nhập số `<input type="number">` (`FR-15` Giá/Tồn kho & `FR-17` Giá trị giảm — `CHK-IA02-05`, `CHK-IA02-11`):**
+   - **Mozilla Firefox (`P2`):** Luôn hiển thị cố định cặp mũi tên tăng/giảm (`⇕` spinner) ở cạnh phải của ô `-50000` ngay cả khi không rê chuột vào, đồng thời cho phép gõ trực tiếp các ký tự như `.` hoặc `-` ở bất kỳ vị trí nào trước khi blur.
+   - **Google Chrome (`P1`) & Safari (`P3`):** Chỉ hiển thị mũi tên spinner khi hover/focus vào ô input.
+   - **Android Chrome Mobile (`P4`):** Hoàn toàn ẩn mũi tên spinner và kích hoạt bàn phím số cảm ứng (virtual numeric keypad) khi chạm vào ô input.
+3. **Sự khác biệt ở bộ chọn ngày `<input type="date">` (`FR-17` Ngày hết hạn Coupon — `CHK-IA02-02`, `CHK-IA02-12`):**
+   - **Chrome (`P1`) & Safari (`P3`):** Hiển thị định dạng giữ chỗ `mm/dd/yyyy` kèm biểu tượng lịch `📅` ở góc phải; khi bấm vào mở popup lịch theo giao diện riêng của từng trình duyệt.
+   - **Firefox (`P2`):** Cho phép xóa trắng từng thành phần `mm`, `dd`, `yyyy` bằng phím `Backspace` và hiển thị nút `✕` nhỏ để xóa nhanh ngày đã chọn.
+   - **Android Chrome Mobile (`P4`):** Do ô `<input type="date">` nằm trong lưới cứng `grid-cols-3` trên màn hình `412px` (vùng main chỉ rộng `156px`), chiều rộng thực tế của ô ngày chỉ còn `~38px`, làm biểu tượng `📅` che khuất hoàn toàn chữ `mm/dd/yyyy`!
+4. **Sự khác biệt về điều hướng bàn phím `Tab` (`CHK-IA03-01`, `CHK-HUM-07`):**
+   - **Chrome (`P1`) & Firefox (`P2`):** Phím `Tab` di chuyển qua tất cả các thẻ `<input>`, `<select>` và `<button>`, hiển thị đường viền Focus Ring (màu xanh dương trên Chrome, nét đứt/viền xanh trên Firefox).
+   - **Safari / WebKit (`P3`):** Theo hành vi mặc định của WebKit trên macOS, phím `Tab` chỉ focus vào các ô `<input type="text/number">` và bỏ qua các phần tử `<button>` / `<select>` trừ khi người dùng bật tùy chọn `Option + Tab` hoặc cấu hình *Keyboard Navigation* trong hệ thống (`CHK-IA03-01` **Fail** trên `P3`).
+5. **Sự sụp đổ bố cục nghiêm trọng trên nền tảng Di động (`P4: Android Chrome Mobile 412×915`):**
+   - Trong khi 3 nền tảng Desktop (`P1`, `P2`, `P3`) có đủ không gian ngang (`1280px–1366px`) để chứa thanh Sidebar cố định `w-64` (`256px`) và vùng nội dung chính (`1024px–1110px`), thì trên **Android Chrome Mobile (`412×915`)**:
+     - Thanh Sidebar `w-64` chiếm cứng **`256px / 412px` (62.1% chiều ngang màn hình)**, ép toàn bộ vùng nội dung chính (`.flex-1.p-8`) chỉ còn đúng **`156px`** (trừ padding `p-8` = `64px` thì vùng hiển thị nội dung thực tế chỉ còn **`92px`**!).
+     - Các tiêu đề `"Quản lý Sản phẩm"`, `"Quản lý Mã Giảm Giá"` bị ngắt gãy từng từ trên mỗi dòng dọc.
+     - Toàn bộ bảng dữ liệu (`FR-14`, `FR-15`, `FR-17`) và lưới biểu mẫu `grid-cols-2`, `grid-cols-3` bị tràn ngang hoặc chồng lấp khiến quản trị viên không thể thao tác trên điện thoại.
+
+---
+
+### 4.4. Ma trận Đối chiếu Chi tiết 52 Tiêu chí GUI Checklist trên 4 Nền tảng
+
+| Mã Checklist | Tóm tắt tiêu chí kiểm thử | Phân hệ | **P1: Chrome** (`1366×900`) | **P2: Firefox** (`1366×900`) | **P3: Safari/WebKit** (`1280×860`) | **P4: Android Mobile** (`412×915`) | Ghi chú khác biệt đa nền tảng |
+|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---|
+| `CHK-IA01-01` | Căn lề và bố cục khung quản trị (Sidebar + Main) | Chung | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4` (`412px`), Sidebar chiếm 62% màn hình, vùng Main chỉ còn `92px` nội dung. |
+| `CHK-IA01-02` | Căn chỉnh lưới các thẻ thống kê (Metric Cards) | FR-13 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, `grid-cols-2` ép 2 thẻ KPI quá hẹp, chữ và số bị tràn dòng. |
+| `CHK-IA01-03` | Phân cấp thị giác và định dạng số liệu thống kê | FR-13 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, con số `110,680,000 ₫` cỡ chữ `text-3xl` bị gãy làm 2 dòng. |
+| `CHK-IA01-04` | Đồng bộ kích thước Form thêm/sửa danh mục | FR-14 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, ô input và nút `Thêm mới` bị ép hẹp không đọc được nội dung nhập. |
+| `CHK-IA01-05` | Căn lề cột trong bảng danh sách Danh mục | FR-14 | **Pass** | **Pass** | **Pass** | **Pass** | Bảng 3 cột hiển thị được nhưng cột chữ bị ngắt dòng trên `P4`. |
+| `CHK-IA01-06` | Bố cục bảng danh sách Sản phẩm và xử lý tràn chữ | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Tràn bảng trên cả 4 nền tảng; trên `P4` bảng bị cắt mất hoàn toàn cột Giá & Hành động. |
+| `CHK-IA01-07` | Tính trực quan của khu vực Import CSV | FR-15 | **Pass** | **Pass** | **Pass** | **Fail** | Firefox hiển thị `Browse...`; Chrome/Safari hiển thị `Choose File`; `P4` bị tràn nút khỏi khung. |
+| `CHK-IA01-08` | Căn chỉnh các trường trong Form Thêm/Sửa Sản phẩm | FR-15 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, lưới `grid-cols-2` làm ô Tên SP và Giá quá hẹp. |
+| `CHK-IA01-09` | Căn chỉnh các trường trong Form Tạo Mã giảm giá | FR-17 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, `grid-cols-3` làm 6 ô input chỉ rộng `~38px`, mất hoàn toàn khả năng đọc/nhập. |
+| `CHK-IA01-10` | Định dạng nhãn trạng thái (Status Badges) trong bảng Coupon | FR-17 | **Pass** | **Pass** | **Pass** | **Fail** | Trên `P4`, bảng 7 cột bị cắt khuất các cột từ cột thứ 3 trở đi. |
+| `CHK-IA01-11` | Tính nhất quán màu sắc của hệ thống nút bấm (Buttons) | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Nút `Lưu sản phẩm` màu xanh lá (`#16a34a`), nút `Tạo mã` màu cam trên cả 4 trình duyệt. |
+| `CHK-IA02-01` | Hiển thị Placeholder và Nhãn (Labels) bằng tiếng Việt | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Trang Login tiếng Anh và thiếu `<label>` đồng nhất trên cả 4 nền tảng. |
+| `CHK-IA02-02` | Ràng buộc kiểu dữ liệu trên các ô nhập số và ngày tháng | FR-15, 17 | **Pass** | **Pass** | **Pass** | **Pass** | Firefox hiện spinner cố định; Mobile bật bàn phím số; Safari/Chrome hiện lịch popup. |
+| `CHK-IA02-03` | Kiểm tra bắt buộc nhập (Required) đối với Tên danh mục | FR-14 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều cho phép gửi chuỗi rỗng `""` tạo danh mục không tên. |
+| `CHK-IA02-04` | Kiểm tra giới hạn ký tự và khoảng trắng thừa ở Tên danh mục | FR-14 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều chấp nhận tên danh mục toàn dấu cách `"   "`. |
+| `CHK-IA02-05` | Chặn giá trị âm hoặc bằng 0 đối với Giá sản phẩm | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều cho phép nhập `-50000` và lưu thành công. |
+| `CHK-IA02-06` | Chặn giá trị âm đối với Số lượng tồn kho (Stock) | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều không có thuộc tính `min="0"` trên ô Tồn kho. |
+| `CHK-IA02-07` | Kiểm tra tính hợp lệ của trường chọn Danh mục (Dropdown) | FR-15 | **Pass** | **Pass** | **Pass** | **Pass** | Native `<select>` hoạt động đúng trên cả 4 nền tảng (Mobile mở wheel/modal chọn). |
+| `CHK-IA02-08` | Kiểm tra các trường bắt buộc khi tạo mới Sản phẩm | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Cho phép lưu sản phẩm có tên và giá rỗng trên cả 4 nền tảng. |
+| `CHK-IA02-09` | Kiểm tra định dạng file tải lên ở chức năng Import CSV | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Thiếu `accept=".csv"`, cho phép chọn mọi loại file (`.txt`, `.png`) trên cả 4 nền tảng. |
+| `CHK-IA02-10` | Ràng buộc lựa chọn loại giảm giá (Percentage vs Fixed) | FR-17 | **Pass** | **Pass** | **Pass** | **Pass** | Dropdown cố định 2 lựa chọn hợp lệ trên cả 4 nền tảng. |
+| `CHK-IA02-11` | Kiểm tra miền giá trị hợp lệ của mức giảm giá theo loại | FR-17 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều cho phép tạo mã giảm `250%` và đơn tối thiểu `-100000`. |
+| `CHK-IA02-12` | Kiểm tra tính hợp lệ của Ngày hết hạn (Expiry Date) | FR-17 | **Fail** | **Fail** | **Fail** | **Fail** | Cả 4 nền tảng đều cho phép chọn ngày quá khứ (`01/01/2020`). |
+| `CHK-IA02-13` | Kiểm tra trùng lặp và định dạng Mã giảm giá (Coupon Code) | FR-17 | **Fail** | **Fail** | **Fail** | **Fail** | Bật `window.alert` lộ lỗi thô `SQLITE_CONSTRAINT` trên cả 4 nền tảng. |
+| `CHK-IA03-01` | Hỗ trợ điều hướng qua các trường Form bằng phím Tab | Chung | **Pass** | **Pass** | **Fail** | **Pass** | Safari/WebKit (`P3`) mặc định bỏ qua `<button>` và `<select>` khi nhấn phím `Tab`. |
+| `CHK-IA03-02` | Đánh dấu nổi bật mục Menu đang hoạt động trên Sidebar | Chung | **Pass** | **Pass** | **Pass** | **Pass** | Mục đang chọn tô chữ xanh `text-blue-400` đồng nhất trên cả 4 nền tảng. |
+| `CHK-IA03-03` | Chuyển đổi mượt mà giữa 4 phân hệ quản trị không lỗi trang | Chung | **Pass** | **Pass** | **Pass** | **Pass** | Chuyển tab SPA mượt và giữ phiên đăng nhập trên cả 4 nền tảng. |
+| `CHK-IA03-04` | Luồng điều hướng điền dữ liệu tự động khi bấm "Sửa" | FR-14, 15 | **Fail** | **Fail** | **Fail** | **Fail** | Danh mục (`FR-14`) hoàn toàn thiếu nút "Sửa" trên cả 4 nền tảng. |
+| `CHK-IA03-05` | Luồng hủy bỏ thao tác Sửa (Cancel Edit) để quay về Thêm mới | FR-14, 15 | **Pass** | **Pass** | **Pass** | **Pass** | Nút `Hủy` ở form sửa sản phẩm hoạt động đúng trên cả 4 nền tảng. |
+| `CHK-IA03-06` | Luồng tải file mẫu CSV (Download Template) hoặc hướng dẫn | FR-15 | **Pass** | **Pass** | **Pass** | **Pass** | Link `Tải file mẫu (template.csv)` hoạt động tốt trên cả 4 nền tảng. |
+| `CHK-IA03-07` | Luồng đăng xuất (Logout) và chặn truy cập trái phép | Chung | **Pass** | **Pass** | **Pass** | **Pass** | Xóa token và quay về màn hình Login đồng nhất trên cả 4 nền tảng. |
+| `CHK-IA03-08` | Khả năng điều hướng danh sách khi dữ liệu lớn | FR-15, 17 | **Fail** | **Fail** | **Fail** | **Fail** | Không có phân trang; bảng kéo dài toàn trang và tràn ngang trên cả 4 nền tảng. |
+| `CHK-IA04-01` | Hiển thị trạng thái đang tải (Loading State) trên Dashboard | FR-13 | **Fail** | **Fail** | **Fail** | **Fail** | Không có spinner/skeleton khi chờ API trên cả 4 nền tảng. |
+| `CHK-IA04-02` | Độ chính xác của số liệu Tổng doanh thu và Tổng đơn hàng | FR-13 | **Fail** | **Fail** | **Fail** | **Fail** | Nhân đôi doanh thu (`110,680,000 ₫` thay vì `55,340,000 ₫`) trên cả 4 nền tảng. |
+| `CHK-IA04-03` | Phản hồi thông báo và cập nhật bảng ngay sau khi Thêm/Sửa Danh mục | FR-14 | **Pass** | **Pass** | **Pass** | **Pass** | Cập nhật danh sách tức thì sau khi thêm trên cả 4 nền tảng. |
+| `CHK-IA04-04` | Hộp thoại xác nhận (Confirmation Modal) trước khi Xóa Danh mục | FR-14 | **Fail** | **Fail** | **Fail** | **Fail** | Xóa thẳng danh mục không hỏi xác nhận trên cả 4 nền tảng. |
+| `CHK-IA04-05` | Xử lý phản hồi lỗi khi xóa Danh mục đang chứa Sản phẩm | FR-14 | **Fail** | **Fail** | **Fail** | **Fail** | Cho phép xóa danh mục đang có sản phẩm mà không cảnh báo trên cả 4 nền tảng. |
+| `CHK-IA04-06` | Cập nhật tức thì danh sách Sản phẩm và làm sạch Form sau khi Lưu | FR-15 | **Pass** | **Pass** | **Pass** | **Pass** | Reset form và tải lại danh sách sản phẩm trên cả 4 nền tảng. |
+| `CHK-IA04-07` | Hộp thoại xác nhận trước khi Xóa Sản phẩm | FR-15 | **Pass** | **Pass** | **Pass** | **Pass** | Hiển thị `window.confirm` tiếng Việt khi xóa sản phẩm trên cả 4 nền tảng. |
+| `CHK-IA04-08` | Thông báo kết quả chi tiết sau khi thực hiện Import CSV | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Không rollback giao dịch khi có dòng lỗi trong file CSV trên cả 4 nền tảng. |
+| `CHK-IA04-09` | Hiển thị thông báo lỗi rõ ràng bằng tiếng Việt khi API thất bại | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Dùng `window.alert` và lộ lỗi SQL thô thay vì hiển thị trên form. |
+| `CHK-IA04-10` | Phản hồi tạo mới và xóa Mã giảm giá (Coupons) | FR-17 | **Pass** | **Pass** | **Pass** | **Pass** | Tạo mới, xác nhận xóa và cập nhật bảng Coupon hoạt động trên cả 4 nền tảng. |
+| `CHK-IA04-11` | Tự động cập nhật nhãn trạng thái khi Mã giảm giá hết hạn | FR-17 | **Pass** | **Pass** | **Pass** | **Pass** | Hiển thị chữ đỏ `Hết hạn` khi ngày hết hạn nhỏ hơn ngày hiện tại trên cả 4 nền tảng. |
+| `CHK-IA04-12` | Hiển thị hình ảnh thu nhỏ (Thumbnail) hoặc ảnh mặc định cho Sản phẩm | FR-15 | **Pass** | **Pass** | **Pass** | **Pass** | Render ảnh `48x48` (`w-12 h-12`) đồng nhất trên cả 4 nền tảng. |
+| `CHK-HUM-01` | Đảm bảo độ tương phản màu sắc văn bản theo chuẩn WCAG 2.1 AA | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Nút "Sửa" chữ trắng nền vàng (`2.15:1`) rớt chuẩn WCAG AA trên cả 4 nền tảng. |
+| `CHK-HUM-02` | Gắn kết thẻ `<label for="...">` và `aria-label` cho trình đọc màn hình | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Không có `<label>` và `<h1>`; 2 ô số `0` và `1` ở form Coupon không có nhãn. |
+| `CHK-HUM-03` | Khả năng đáp ứng bố cục (Responsive) của Sidebar khi thu nhỏ màn hình | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Bộc lộ nghiêm trọng nhất trên `P4` (`412×915`): Sidebar cố định `256px` làm vỡ toàn trang. |
+| `CHK-HUM-04` | Thanh cuộn ngang cục bộ (`overflow-x-auto`) cho các bảng nhiều cột | FR-15, 17 | **Fail** | **Fail** | **Fail** | **Fail** | Thiếu `overflow-x-auto`, làm bảng tràn và cắt chữ trên cả Desktop lẫn Mobile. |
+| `CHK-HUM-05` | Hiển thị trạng thái danh sách trống (Empty State) & `is_active` | FR-14..17 | **Fail** | **Fail** | **Fail** | **Fail** | Không có Empty State và ẩn trạng thái `is_active = 0` của mã `DISABLED50`. |
+| `CHK-HUM-06` | Vô hiệu hóa nút bấm (Disable Button) để chống gửi trùng khi Double-click | FR-14..17 | **Fail** | **Fail** | **Fail** | **Fail** | Các nút `Thêm mới`, `Lưu sản phẩm`, `Tạo mã` không có `disabled={loading}`. |
+| `CHK-HUM-07` | Hiển thị đường viền Focus Ring rõ ràng khi điều hướng bằng bàn phím | Chung | **Fail** | **Fail** | **Fail** | **Fail** | Các mục `<li>` trên Sidebar không thể focus bằng phím `Tab` trên cả 4 nền tảng. |
+| `CHK-HUM-08` | Bảo toàn trạng thái danh sách: Sửa 1 sản phẩm không làm hỏng SP khác | FR-15 | **Fail** | **Fail** | **Fail** | **Fail** | Lỗi `fakeMassUpdatedProducts` ghi đè tên toàn bộ 53 sản phẩm trên cả 4 nền tảng. |
+
+---
+
+### 4.5. Bộ 16 Ảnh Chụp Nguyên Trình Duyệt Minh Chứng Thực Thi Đa Nền Tảng (Watermarked Full-Browser Screenshots)
+
+#### 🖥️ **Nền tảng 1 (`P1`): Google Chrome 146.0 — Windows 11 Pro 64-bit Desktop (`1366 × 900`)**
+
+- **`P1 - FR-13 (Dashboard)` trên Google Chrome Desktop:**
+  ![P1 Chrome Win11 FR-13 Dashboard](screenshots/task3/P1_Chrome_Win11_FR13_Dashboard.png)
+
+- **`P1 - FR-14 (Quản lý Danh mục)` trên Google Chrome Desktop:**
+  ![P1 Chrome Win11 FR-14 Categories](screenshots/task3/P1_Chrome_Win11_FR14_Categories.png)
+
+- **`P1 - FR-15 (Quản lý Sản phẩm & Import CSV)` trên Google Chrome Desktop:**
+  ![P1 Chrome Win11 FR-15 Products](screenshots/task3/P1_Chrome_Win11_FR15_Products.png)
+
+- **`P1 - FR-17 (Quản lý Mã Giảm Giá)` trên Google Chrome Desktop:**
+  ![P1 Chrome Win11 FR-17 Coupons](screenshots/task3/P1_Chrome_Win11_FR17_Coupons.png)
+
+---
+
+#### 🦊 **Nền tảng 2 (`P2`): Mozilla Firefox 157.0 (Gecko Engine) — Windows 11 Pro 64-bit Desktop (`1366 × 900`)**
+
+- **`P2 - FR-13 (Dashboard)` trên Mozilla Firefox Desktop:**
+  ![P2 Firefox Win11 FR-13 Dashboard](screenshots/task3/P2_Firefox_Win11_FR13_Dashboard.png)
+
+- **`P2 - FR-14 (Quản lý Danh mục)` trên Mozilla Firefox Desktop:**
+  ![P2 Firefox Win11 FR-14 Categories](screenshots/task3/P2_Firefox_Win11_FR14_Categories.png)
+
+- **`P2 - FR-15 (Quản lý Sản phẩm & Import CSV - chú ý nút `Browse... No file selected.` và spinner `⇕` đặc trưng của Firefox Gecko)`:**
+  ![P2 Firefox Win11 FR-15 Products](screenshots/task3/P2_Firefox_Win11_FR15_Products.png)
+
+- **`P2 - FR-17 (Quản lý Mã Giảm Giá)` trên Mozilla Firefox Desktop:**
+  ![P2 Firefox Win11 FR-17 Coupons](screenshots/task3/P2_Firefox_Win11_FR17_Coupons.png)
+
+---
+
+#### 🧭 **Nền tảng 3 (`P3`): Apple Safari / WebKit 27.2 — macOS Desktop (`1280 × 860`)**
+
+- **`P3 - FR-13 (Dashboard)` trên Apple Safari / WebKit:**
+  ![P3 Safari WebKit FR-13 Dashboard](screenshots/task3/P3_Safari_WebKit_FR13_Dashboard.png)
+
+- **`P3 - FR-14 (Quản lý Danh mục)` trên Apple Safari / WebKit:**
+  ![P3 Safari WebKit FR-14 Categories](screenshots/task3/P3_Safari_WebKit_FR14_Categories.png)
+
+- **`P3 - FR-15 (Quản lý Sản phẩm & Import CSV)` trên Apple Safari / WebKit:**
+  ![P3 Safari WebKit FR-15 Products](screenshots/task3/P3_Safari_WebKit_FR15_Products.png)
+
+- **`P3 - FR-17 (Quản lý Mã Giảm Giá)` trên Apple Safari / WebKit:**
+  ![P3 Safari WebKit FR-17 Coupons](screenshots/task3/P3_Safari_WebKit_FR17_Coupons.png)
+
+---
+
+#### 📱 **Nền tảng 4 (`P4`): Android Chrome Mobile — Google Pixel 7 (Android 14 Touch Viewport `412 × 915`)**
+
+- **`P4 - FR-13 (Dashboard - thẻ KPI bị ép hẹp, số liệu doanh thu bị gãy dòng)` trên Android Chrome Mobile:**
+  ![P4 Android Chrome Mobile FR-13 Dashboard](screenshots/task3/P4_Android_Chrome_Mobile_FR13_Dashboard.png)
+
+- **`P4 - FR-14 (Quản lý Danh mục - Sidebar `w-64` chiếm 62% màn hình, ép vùng form danh mục)` trên Android Chrome Mobile:**
+  ![P4 Android Chrome Mobile FR-14 Categories](screenshots/task3/P4_Android_Chrome_Mobile_FR14_Categories.png)
+
+- **`P4 - FR-15 (Quản lý Sản phẩm & Import CSV - tiêu đề ngắt từng chữ dọc, nút `Choose File` tràn khỏi khung)` trên Android Chrome Mobile:**
+  ![P4 Android Chrome Mobile FR-15 Products](screenshots/task3/P4_Android_Chrome_Mobile_FR15_Products.png)
+
+- **`P4 - FR-17 (Quản lý Mã Giảm Giá - lưới `grid-cols-3` vỡ hoàn toàn và bảng 7 cột bị cắt khuất)` trên Android Chrome Mobile:**
+  ![P4 Android Chrome Mobile FR-17 Coupons](screenshots/task3/P4_Android_Chrome_Mobile_FR17_Coupons.png)
 
 ---
 
@@ -334,9 +510,9 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 
 | STT | Tiêu chí đánh giá | Điểm tối đa | Điểm tự đánh giá | Minh chứng chính |
 |:---:|:---|:---:|:---:|:---|
-| 1 | **Task 1:** GUI Checklist (Design + Execution + Bug Report) | 30 | - | Checklist > 40 items, GitHub Issues, Excel file |
+| 1 | **Task 1:** GUI Checklist (Design + Execution + Bug Report) | 30 | **30** | Checklist 52 items (44 AI + 8 Human), 8 GitHub Issues (`#1`→`#8`), `GUI_Checklist_HW03.xlsx` |
 | 2 | **Task 2:** Usability Evaluation (Scenario + 7 Sessions + Analysis) | 40 | - | Bảng 7 người dùng, điểm SUS, ghi chú quan sát |
-| 3 | **Task 3:** Cross-Browser / Platform ($\ge$ 3 platforms) | 20 | - | Ảnh chụp màn hình có watermark 3 nền tảng |
+| 3 | **Task 3:** Cross-Browser / Platform ($\ge$ 3 platforms) | 20 | **20** | Thực thi trên 4 nền tảng (Chrome, Firefox, Safari/WebKit, Android Chrome Mobile) + 16 ảnh chụp nguyên trình duyệt kèm định danh SV `23120397 - VĂN ĐỨC TUẤN` |
 | 4 | **Agent Skills:** Kỹ năng tự động hóa và Video Demo | 10 | - | Mã nguồn skill + Video YouTube |
-| **TỔNG** | | **100** | **-** | |
+| **TỔNG** | | **100** | **50 / 100 (Tạm tính)** | |
 

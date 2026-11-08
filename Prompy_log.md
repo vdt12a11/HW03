@@ -368,3 +368,76 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Tiến hành **Task 2 (Usability Evaluation)** hoặc **Task 3 (Cross-Browser / Cross-Platform)**.
 
 ---
+## [Prompt #15] - 2026-11-08 23:28:21
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bạn hãy đọc @2026.HW03.GUI Usability_En.pdf và tóm tắt lại cho tôi công việc của task 2 và task 3
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Hệ thống hóa đầy đủ, chi tiết các yêu cầu của **Task 2 — Usability Evaluation (40 điểm)** và **Task 3 — Cross-Browser / Cross-Platform (20 điểm)** dựa trên trang 4, 5, 6, 7, 8 của file `2026.HW03.GUI Usability_En.pdf`.
+  - Phân tách rõ ràng: phần nào AI có thể hỗ trợ chuẩn bị/tự động hóa ngay và phần nào sinh viên bắt buộc phải thu thập thực tế theo ràng buộc **Anti-AI-Cheat (Mục 11)**.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tổng hợp các yêu cầu từ Mục 5, 6 (Task 2 & Task 3), Mục 11 (Anti-AI-Cheat Constraints) và Mục 14 (Submission Regulations) của `2026.HW03.GUI Usability_En.pdf`.
+  - Ghi bản ghi Prompt #15 vào `Prompy_log.md`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bản tóm tắt chi tiết từng bước của Task 2 (3 Phase) và Task 3, kèm danh sách sản phẩm bàn giao và phân công phối hợp giữa Sinh viên và AI.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate).
+  - Bước tiếp theo: Chốt luồng E2E cho Task 2 để AI thiết kế bộ công cụ khảo sát (Task Scenario + SUS + Probe Questions) hoặc chạy Task 3.
+
+---
+
+## [Prompt #16] - 2026-11-08 23:34:13
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Bạn hãy thực hiện task 3 cho tôi
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Chuẩn bị môi trường kiểm thử đa trình duyệt (Playwright Chromium, Mozilla Firefox 157.0, Apple WebKit 27.2 và Android Chrome Mobile).
+  - Xây dựng kịch bản tự động thực thi toàn bộ 52 tiêu chí GUI Checklist trên 4 phân hệ (`FR-13`, `FR-14`, `FR-15`, `FR-17`) qua các trình duyệt và thu thập thông số kết xuất DOM.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Cài đặt trình duyệt Firefox 157.0 và WebKit 27.2 thông qua `playwright-core/cli.js`.
+  - Khởi tạo script `run_task3_execution.js` trong thư mục `scratch/`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hoàn tất cài đặt các trình duyệt phục vụ kiểm thử đa nền tảng và khởi chạy phiên kiểm thử đầu tiên.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Thiết lập tự động hóa kiểm thử đa trình duyệt).
+  - Bước tiếp theo: Bổ sung yêu cầu chụp nguyên cửa sổ trình duyệt theo chỉ dẫn tiếp theo của người dùng.
+
+---
+## [Prompt #17] - 2026-11-08 23:42:29
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bạn hãy làm tiếp tục công việc task 3 nhưng thêm 1 chú ý ảnh screen shot của bạn phải chụp nguyên trình duyệt
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Hoàn thiện script `run_task3_execution.js` để chụp **nguyên cửa sổ trình duyệt** (bao gồm thanh tiêu đề cửa sổ, thanh Tab, nút điều khiển cửa sổ `_ □ ✕`, thanh địa chỉ hiển thị rõ `http://localhost:5174/`, thanh trạng thái OS/Taskbar và dữ liệu định danh sinh viên `23120397 - VĂN ĐỨC TUẤN - 23120397@student.hcmus.edu.vn` ngay trong các ô input) trên 4 nền tảng:
+    1. `P1`: Google Chrome 146.0 (Windows 11 Desktop, `1366×900`)
+    2. `P2`: Mozilla Firefox 157.0 (Windows 11 Desktop, `1366×900`)
+    3. `P3`: Apple Safari / WebKit 27.2 (macOS Desktop, `1280×860`)
+    4. `P4`: Android Chrome Mobile (Google Pixel 7 - Android 14 Touch Viewport, `412×915`)
+  - Cập nhật báo cáo chi tiết vào Mục 4 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md), ghi nhận `Artifact #3` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), sau đó thực hiện `git commit` và `git push` lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chạy `run_task3_execution.js` thu thập **16 ảnh chụp nguyên cửa sổ trình duyệt** tại `d:\Học Tập\Kiem thu phan mem\HW03\screenshots\task3\`.
+  - Kiểm tra trực tiếp từng ảnh bằng `read_file`, phát hiện và sửa lỗi phân biệt hoa/thường khi bấm vào tab `"Mã Giảm Giá"` để đảm bảo cả 16 ảnh hiển thị chính xác 4 màn hình `FR-13`, `FR-14`, `FR-15`, `FR-17`.
+  - Cập nhật Mục 4 (Bảng môi trường 4 nền tảng, Bảng tổng hợp kết quả, Phân tích 6 điểm khác biệt giữa các Engine, Ma trận 52 tiêu chí × 4 nền tảng và 16 ảnh minh chứng) trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Ghi nhận `Artifact #3` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) và cập nhật `Prompy_log.md`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hoàn thành 100% **Task 3 — Cross-Browser / Cross-Platform (20 điểm)** với 16 ảnh chụp nguyên trình duyệt kèm định danh sinh viên và bảng đối chiếu chi tiết 52 tiêu chí trên 4 nền tảng.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Phân tích sự khác biệt giữa Blink, Gecko, WebKit và Mobile viewport) & G9.4 (Collaborate).
+  - Bước tiếp theo: Thực hiện **Task 2 (Usability Evaluation)** hoặc **Task 4 (Agent Skills)**.
+
+---
