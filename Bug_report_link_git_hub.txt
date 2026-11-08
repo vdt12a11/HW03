@@ -1,0 +1,9 @@
+https://github.com/vdt12a11/HW03/issues
+Issue #1: https://github.com/vdt12a11/HW03/issues/1 - [BUG-01] [Admin Login] Giao diện đăng nhập dùng tiếng Anh, thiếu thẻ <h1>, thiếu <label> và thiếu type='email'
+Issue #2: https://github.com/vdt12a11/HW03/issues/2 - [BUG-02] [FR-13 Dashboard] Tính sai gấp đôi Tổng doanh thu (Delivered) (total_amount * 2) và thiếu trạng thái Loading
+Issue #3: https://github.com/vdt12a11/HW03/issues/3 - [BUG-03] [FR-14 Categories] Cho phép tạo danh mục rỗng, không khóa nút khi bấm đúp và xóa thẳng không có Confirm Dialog
+Issue #4: https://github.com/vdt12a11/HW03/issues/4 - [BUG-04] [FR-15 Products] Cho phép lưu sản phẩm giá âm, tên dài làm vỡ bảng, giá thiếu dấu phân cách hàng nghìn và sai màu nút Submit
+Issue #5: https://github.com/vdt12a11/HW03/issues/5 - [BUG-05] [FR-15 Products] Sửa 1 sản phẩm làm ghi đè tên của TẤT CẢ sản phẩm trên bảng, thiếu Toast khi thêm mới và nút Sửa vi phạm WCAG 2.1
+Issue #6: https://github.com/vdt12a11/HW03/issues/6 - [BUG-06] [FR-15/FR-16 CSV Import] Không giới hạn đuôi file .csv, chấp nhận giá âm và không Rollback giao dịch khi có dòng lỗi
+Issue #7: https://github.com/vdt12a11/HW03/issues/7 - [BUG-07] [FR-17 Coupons] Cho phép tạo mã giảm > 100%, đơn tối thiểu âm, ngày hết hạn quá khứ, mất nhãn input và lộ lỗi SQLite thô
+Issue #8: https://github.com/vdt12a11/HW03/issues/8 - [BUG-08] [Responsive & A11y] Giao diện Web Admin vỡ bố cục nghiêm trọng trên màn hình nhỏ (Mobile) và Sidebar không hỗ trợ phím Tab

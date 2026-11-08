@@ -154,13 +154,16 @@ Bộ tiêu chí bao gồm **44 mục kiểm thử**, được phân bố đều 
 
 ---
 
-### 2.4. Danh sách Báo cáo Lỗi (Bug Reports & Screenshots)
+### 2.4. Danh sách Báo cáo Lỗi (Bug Reports & GitHub Issues)
 
-Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** gom nhóm toàn bộ 25 mục checklist bị `Failed` trong quá trình thực thi trên phân hệ Web Admin (`http://localhost:5174`):
+> 🔗 **Trang tổng hợp GitHub Issues:** [https://github.com/vdt12a11/HW03/issues](https://github.com/vdt12a11/HW03/issues) (Xem thêm trong file [`Bug_report_link_git_hub.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Bug_report_link_git_hub.txt))
+
+Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** gom nhóm toàn bộ 25 mục checklist bị `Failed` trong quá trình thực thi trên phân hệ Web Admin (`http://localhost:5174`), đã được đẩy trực tiếp lên **GitHub Issues** kèm ảnh chụp màn hình:
 
 ---
 
 #### 🔴 **BUG-01: Màn hình Đăng nhập Admin vi phạm tính nhất quán ngôn ngữ Tiếng Việt, thiếu thẻ `<h1>`, thiếu `<label>` và thiếu `type="email"`**
+- **GitHub Issue:** [Issue #1 — https://github.com/vdt12a11/HW03/issues/1](https://github.com/vdt12a11/HW03/issues/1)
 - **Mã Checklist liên quan:** `CHK-IA01-10`, `CHK-IA04-12`, `CHK-HUM-02`
 - **Phân hệ:** Web Admin Login (`App.jsx:188-215`) | **Đặc tả vi phạm:** `FR-02`, `FR-21`, `FR-22`
 - **Mức độ nghiêm trọng (Severity):** Medium (Minor UI / Standard Compliance)
@@ -176,6 +179,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-02: Dashboard tính sai gấp đôi Tổng doanh thu (Delivered) và thiếu trạng thái Loading khi tải dữ liệu**
+- **GitHub Issue:** [Issue #2 — https://github.com/vdt12a11/HW03/issues/2](https://github.com/vdt12a11/HW03/issues/2)
 - **Mã Checklist liên quan:** `CHK-IA01-01`, `CHK-IA04-01`
 - **Phân hệ:** `FR-13: Dashboard` (`App.jsx:217-220`, `App.jsx:41-59`) | **Đặc tả vi phạm:** `FR-13`, `FR-24`
 - **Mức độ nghiêm trọng (Severity):** Critical (Sai lệch số liệu tài chính cốt lõi)
@@ -190,6 +194,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-03: Quản lý Danh mục cho phép tạo danh mục rỗng, không khóa nút khi bấm đúp và xóa thẳng không có hộp thoại xác nhận**
+- **GitHub Issue:** [Issue #3 — https://github.com/vdt12a11/HW03/issues/3](https://github.com/vdt12a11/HW03/issues/3)
 - **Mã Checklist liên quan:** `CHK-IA02-02`, `CHK-IA04-04`, `CHK-HUM-06`
 - **Phân hệ:** `FR-14: Category Management` (`App.jsx:142-160`, `App.jsx:297-333`) | **Đặc tả vi phạm:** `FR-14`, `FR-24`
 - **Mức độ nghiêm trọng (Severity):** High (Làm bẩn dữ liệu CSDL & nguy cơ mất dữ liệu)
@@ -205,6 +210,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-04: Quản lý Sản phẩm cho phép lưu giá âm, không giới hạn độ dài tên gây vỡ bảng, thiếu định dạng dấu phẩy hàng nghìn và sai màu nút Submit**
+- **GitHub Issue:** [Issue #4 — https://github.com/vdt12a11/HW03/issues/4](https://github.com/vdt12a11/HW03/issues/4)
 - **Mã Checklist liên quan:** `CHK-IA01-06`, `CHK-IA01-07`, `CHK-IA01-11`, `CHK-IA02-03`, `CHK-IA02-04`
 - **Phân hệ:** `FR-15: Product Management` (`App.jsx:483-608`) | **Đặc tả vi phạm:** `FR-15`, `FR-21`, `FR-22`
 - **Mức độ nghiêm trọng (Severity):** High (Vi phạm ràng buộc dữ liệu & làm vỡ giao diện)
@@ -226,6 +232,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-05: Sửa 1 sản phẩm làm ghi đè tên của TẤT CẢ sản phẩm trên giao diện, thiếu thông báo khi thêm mới và nút "Sửa" vi phạm độ tương phản WCAG 2.1**
+- **GitHub Issue:** [Issue #5 — https://github.com/vdt12a11/HW03/issues/5](https://github.com/vdt12a11/HW03/issues/5)
 - **Mã Checklist liên quan:** `CHK-HUM-08`, `CHK-IA04-09`, `CHK-HUM-01`
 - **Phân hệ:** `FR-15: Product Management` (`App.jsx:108-119`, `App.jsx:593`) | **Đặc tả vi phạm:** `FR-15`, `WCAG 2.1 AA`
 - **Mức độ nghiêm trọng (Severity):** Critical (Làm hỏng toàn bộ dữ liệu hiển thị trên bảng sản phẩm)
@@ -241,6 +248,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-06: Import CSV không giới hạn đuôi file `.csv`, nhận cả sản phẩm giá âm và không Rollback giao dịch khi có dòng lỗi**
+- **GitHub Issue:** [Issue #6 — https://github.com/vdt12a11/HW03/issues/6](https://github.com/vdt12a11/HW03/issues/6)
 - **Mã Checklist liên quan:** `CHK-IA02-09`, `CHK-IA04-08`
 - **Phân hệ:** `FR-15 & FR-16: CSV Import` (`App.jsx:356-425`, `server.js:199-241`) | **Đặc tả vi phạm:** `FR-16`
 - **Mức độ nghiêm trọng (Severity):** High (Vi phạm tính nguyên tử dữ liệu - Atomic Transaction)
@@ -255,6 +263,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-07: Quản lý Mã Giảm Giá cho phép tạo mã giảm > 100%, đơn tối thiểu âm, ngày hết hạn quá khứ, mất nhãn ô input và lộ lỗi SQLite thô**
+- **GitHub Issue:** [Issue #7 — https://github.com/vdt12a11/HW03/issues/7](https://github.com/vdt12a11/HW03/issues/7)
 - **Mã Checklist liên quan:** `CHK-IA02-11`, `CHK-IA02-12`, `CHK-IA04-11`, `CHK-HUM-01`, `CHK-HUM-02`, `CHK-HUM-05`
 - **Phân hệ:** `FR-17: Coupon Management` (`App.jsx:612-774`) | **Đặc tả vi phạm:** `FR-17`, `FR-21`, `FR-22`
 - **Mức độ nghiêm trọng (Severity):** High (Sai lệch nghiệp vụ khuyến mãi & lộ thông tin CSDL)
@@ -274,6 +283,7 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 ---
 
 #### 🔴 **BUG-08: Giao diện Web Admin vỡ bố cục nghiêm trọng trên màn hình nhỏ (Mobile Responsive) và Sidebar không hỗ trợ điều hướng bằng bàn phím**
+- **GitHub Issue:** [Issue #8 — https://github.com/vdt12a11/HW03/issues/8](https://github.com/vdt12a11/HW03/issues/8)
 - **Mã Checklist liên quan:** `CHK-IA03-08`, `CHK-HUM-03`, `CHK-HUM-04`
 - **Phân hệ:** Toàn hệ thống Web Admin (`App.jsx:223-275`, `App.jsx:636`, `App.jsx:716`) | **Đặc tả vi phạm:** `IA-01 Responsive`, `IA-03 Navigation`, `FR-21`
 - **Mức độ nghiêm trọng (Severity):** Medium (Không thể thao tác trên thiết bị di động/màn hình hẹp và bằng bàn phím)

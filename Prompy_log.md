@@ -342,3 +342,29 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Đẩy 8 Bug Reports lên GitHub Issues (nếu đã có repo GitHub) hoặc chuyển sang chuẩn bị **Task 2 (Usability Evaluation)** và **Task 3 (Cross-Browser / Cross-Platform)**.
 
 ---
+## [Prompt #14] - 2026-11-08 23:20:41
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > https://github.com/vdt12a11/HW03
+  > đây là link repo bạn hãy push lên issue các bug mà bạn tìm đc (nhớ kèm theo hình ảnh screen shot mà bạn đã chup)
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Thiết lập remote `origin` trỏ tới `https://github.com/vdt12a11/HW03.git` và đẩy toàn bộ repository (bao gồm thư mục `screenshots/task1/`) lên nhánh `master` để ảnh chụp có URL công khai (`raw.githubusercontent.com`).
+  - Sử dụng GitHub REST API tạo tự động **8 GitHub Issues (`#1` → `#8`)** tương ứng với 8 Bug Reports (`BUG-01` → `BUG-08`), đính kèm trực tiếp ảnh chụp màn hình vào thân từng Issue.
+  - Lưu danh sách link vào `Bug_report_link_git_hub.txt`, cập nhật link Issues vào `Main_report.md` và `AI_Audit_Report.md`, sau đó commit & push đồng bộ lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chạy script `push_and_create_issues.js` đẩy code và 8 ảnh chụp màn hình lên `https://github.com/vdt12a11/HW03`.
+  - Tạo thành công 8 Issues trên GitHub (`https://github.com/vdt12a11/HW03/issues/1` đến `/8`).
+  - Tạo file [`Bug_report_link_git_hub.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Bug_report_link_git_hub.txt) và cập nhật đường dẫn từng Issue vào Mục 2.4 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) cũng như [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Thực hiện `git add`, `git commit` và `git push` hoàn tất đồng bộ.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - 8 GitHub Issues đã hiển thị công khai kèm đầy đủ mô tả và ảnh chụp màn hình trực quan tại `https://github.com/vdt12a11/HW03/issues`.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Tự động hóa tích hợp quản lý lỗi trên GitHub Issues).
+  - Bước tiếp theo: Tiến hành **Task 2 (Usability Evaluation)** hoặc **Task 3 (Cross-Browser / Cross-Platform)**.
+
+---
