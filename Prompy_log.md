@@ -207,3 +207,54 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Khi người dùng yêu cầu sinh GUI Checklist, đó sẽ là `Artifact #1` chính thức đầu tiên.
 
 ---
+## [Prompt #9] - 2026-11-08 22:41:00
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Continue
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Đề xuất bắt đầu ngay vào nội dung cốt lõi đầu tiên: **Task 1 – GUI Checklist**.
+  - Xác nhận scope màn hình kiểm thử dựa trên code frontend-web của SUT EShop đã rà soát:
+    1. Chi tiết sản phẩm (`ProductDetail.jsx` - FR-06).
+    2. Giỏ hàng (`Cart.jsx` - FR-07).
+    3. Thanh toán & Mã giảm giá (`Checkout.jsx` - FR-08 & FR-09).
+  - Chuẩn bị tạo **Artifact #1** chính thức: Bộ tiêu chí GUI Checklist ban đầu (> 40 items) phủ 4 khía cạnh (`IA-01` → `IA-04`).
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Ghi bản ghi Prompt #9 vào `Prompy_log.md`.
+  - Phân tích luồng nghiệp vụ liên hoàn từ 3 màn hình thực tế trong codebase `eshop-sut`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Kế hoạch chi tiết để sinh Artifact #1 (GUI Checklist > 40 items) sẵn sàng chờ lệnh người dùng để tiến hành sinh và ghi nhận vào AI Audit Report.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Định hướng chuyển giao sang pha sinh test artifact chính thức).
+  - Bước kế tiếp: Sinh bộ GUI Checklist ban đầu (> 40 items) và ghi nhận vào `AI_Audit_Report.md`.
+
+---
+## [Prompt #10] - 2026-11-08 22:43:17
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > xoá folderHW03/ eshop sut , tôi có add eshop-sut từ workspacce
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Xóa bỏ folder `eshop-sut` cục bộ trong thư mục `HW03` theo yêu cầu của người dùng vì người dùng đã add trực tiếp `eshop-sut` từ workspace.
+  - Xóa bỏ trạng thái submodule / git cached đối với `eshop-sut`.
+  - Thực hiện Git commit để cập nhật thay đổi.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chạy `git rm -f --cached eshop-sut` để xóa khỏi Git index.
+  - Xóa bỏ hoàn toàn thư mục `d:\Học Tập\Kiem thu phan mem\HW03\eshop-sut`.
+  - Ghi bản ghi Prompt #10 vào `Prompy_log.md`.
+  - Thực hiện Git commit lưu trạng thái repository.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Đã xóa sạch thư mục `eshop-sut` bên trong `HW03`, repo gọn gàng và không bị lồng git subproject.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Quản lý cấu trúc workspace theo sự điều phối của người dùng).
+  - Sử dụng đường dẫn tham chiếu đến workspace `eshop-sut` của người dùng khi cần.
+
+---
