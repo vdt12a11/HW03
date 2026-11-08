@@ -258,3 +258,32 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Sử dụng đường dẫn tham chiếu đến workspace `eshop-sut` của người dùng khi cần.
 
 ---
+## [Prompt #11] - 2026-11-08 22:46:35
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > tôi chọn FR-13,14,15,17 trong file @2026.HW03.GUI Usability_En.pdf để làm task 1, bạn hãy làm task 1 sinh ra các check list phù hợp với cchwucs năng tôi đã chọn
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Tiếp nhận lựa chọn phạm vi kiểm thử từ sinh viên: Nhóm chức năng Web Admin gồm **FR-13 (Dashboard)**, **FR-14 (Category CRUD)**, **FR-15 (Product CRUD & CSV Import)** và **FR-17 (Coupon CRUD)**.
+  - Đọc trực tiếp mã nguồn thực tế của `frontend-admin/src/App.jsx` để nắm bắt toàn bộ components, inputs, buttons, tables và dialogs.
+  - Sinh bộ GUI Checklist sơ khởi (> 40 items, thực tế sinh 44 items) bao phủ 4 khía cạnh `IA-01` đến `IA-04`.
+  - Tự động ghi nhận **Artifact #1** vào `AI_Audit_Report.md` với đánh giá `INCOMPLETE` (chỉ ra các điểm AI thường bỏ quên như WCAG Accessibility, Responsive, Darkmode).
+  - Thực hiện Git commit theo quy định.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Đọc mã nguồn `frontend-admin/src/App.jsx` trong `eshop-sut`.
+  - Soạn thảo bảng 44 tiêu chí GUI kiểm thử chi tiết và đưa vào mục 2.1 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Tự động ghi bản ghi kiểm toán **Artifact #1: Initial GUI Checklist (>40 items)** vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Ghi bản ghi Prompt #11 vào `Prompy_log.md`.
+  - Chạy `git add .` và `git commit` để lưu giữ phiên bản.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bộ GUI Checklist 44 items bám sát thực tế Web Admin SUT đã nằm trong `Main_report.md`.
+  - Dòng kiểm toán chuẩn 5 cột của Artifact #1 đã được ghi vào `AI_Audit_Report.md`.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Phân tích đặc tả và code SUT để sinh bộ tiêu chí kiểm thử) & G9.4 (Collaborate).
+  - Bước kế tiếp: Sinh viên thực hiện **Human Review** (Mục 2.2) để bổ sung các tiêu chí AI còn thiếu sót và bắt đầu thực thi (Execution).
+
+---
