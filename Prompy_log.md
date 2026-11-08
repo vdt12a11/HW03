@@ -493,3 +493,53 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Sinh viên tự viết đoạn phản biện 200–300 từ tại Mục 6 của `Main_report.md` và thực hiện khảo sát Task 2.
 
 ---
+
+## [Prompt #20] - 2026-11-09 00:15:19
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bây giờ task 2 người tham gia cần làm những gì 
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Giải thích rõ ràng, từng bước cụ thể những việc mà **7 người tham gia khảo sát (Participants)** và **Sinh viên (Moderator)** cần thực hiện trong một phiên thử nghiệm Usability (Task 2 - 40 điểm).
+  - Cung cấp sẵn kịch bản giao việc, bảng 10 câu hỏi SUS và 4 câu hỏi phỏng vấn ngắn (Probe Questions) để sinh viên có thể gửi hoặc đọc trực tiếp cho 7 người tham gia.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tổng hợp quy trình thực hiện phiên thử nghiệm từ Mục 6 (Task 2 - Phase 1, 2, 3) và Mục 11 (Anti-AI-Cheat) của `2026.HW03.GUI Usability_En.pdf` cùng mẫu [`usability_sus_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/usability_sus_template.md).
+  - Ghi nhận `[Prompt #20]` vào `Prompy_log.md`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hướng dẫn thực hành 4 bước ngắn gọn (7–10 phút/người) dành cho người tham gia và biểu mẫu thu thập dữ liệu để sinh viên điền kết quả.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Hướng dẫn tổ chức phiên thực nghiệm Usability với người dùng thật).
+  - Bước tiếp theo: Sinh viên gửi kết quả khảo sát 7 người để AI tính điểm SUS bằng `calculate_sus.js` và cập nhật Mục 3 của `Main_report.md`.
+
+---
+
+## [Prompt #21] - 2026-11-09 00:18:26
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bây giờ tôi chưa có người tham gia nhưng tôi cần bạn chuẩn bị sẵn hết cho tôi, lúc tôi tìm đc người quay có video, có câu trả lời là bài tập phải hoàn thiện, luồng E2E là người dùng đăng nhập vô trang admin và thực hiện thêm coupon
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Chuẩn bị sẵn 100% khung nội dung, kịch bản, bảng biểu và phân tích cho **Mục 3: Task 2 — Đánh giá Usability (40 điểm)** theo đúng luồng E2E người dùng đã chốt: **`Đăng nhập Web Admin (FR-12) -> Xem Dashboard (FR-13) -> Điều hướng sang Quản lý Mã Giảm Giá (FR-17) -> Tạo mới, Kiểm tra lỗi trùng mã & Xóa Mã Giảm Giá`**.
+  - Tuân thủ tuyệt đối quy tắc **Anti-AI-Cheat (Mục 11)**: Không tự bịa thông tin cá nhân hay điểm số của 7 người tham gia, mà dựng sẵn các bảng điền nhanh (`[Điền Họ Tên P1..P7]`, `[09x****xxx]`, `[Link Video P1..P7]`) trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) và file dữ liệu [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json).
+  - Bổ sung luôn file [`README.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/README.md) ở thư mục gốc theo yêu cầu bắt buộc tại Mục 14 (Submission Regulations) của đề bài.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Cập nhật [`usability_sus_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/usability_sus_template.md) (và bản sao trong `.agents/skills/`) theo luồng E2E `Admin Login -> Create Coupon`.
+  - Viết hoàn chỉnh các mục **3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8** trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Tạo file [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json) để tính điểm SUS tự động ngay khi có dữ liệu 7 người.
+  - Tạo file [`README.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/README.md) chứa bảng tổng kết kiểm thử và bảng tự đánh giá điểm.
+  - Ghi nhận `Artifact #5` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) và xuất lại [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Toàn bộ khung báo cáo cho Task 2 (`Mục 3.1` $\rightarrow$ `3.8`), file `usability_responses.json` và `README.md` đã sẵn sàng 100%; ngay khi có thông tin + câu trả lời + link video của 7 người tham gia thực tế là có thể điền vào hoàn tất bài nộp.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate).
+  - Bước tiếp theo: Khi sinh viên quay xong video và có điểm SUS của 7 người tham gia, gửi dữ liệu để AI chạy `calculate_sus.js` điền tự động vào Mục 3.5, 3.6, 3.7.
+
+---

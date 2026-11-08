@@ -2,21 +2,37 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-08T17:13:28.538Z
+Generated At: 2026-11-08T17:31:41.663Z
 ======================================================================
 
 ======================================================================
-Commit Hash : b9de272e1774d5109d8b9a8af1d15397c5609aa1
+Commit Hash : 3999d4f725f0316639eafd09a45e8794a6534f47
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-09 00:31:41 +0700
+Subject     : feat(task2): prepare complete E2E Admin Login and Coupon Creation usability framework and README
+
+ .../resources/usability_sus_template.md            |  58 ++++++----
+ AI_Audit_Report.md                                 |   1 +
+ Git_Commit_Log.txt                                 |   8 +-
+ Main_report.md                                     | 123 ++++++++++++++++++++-
+ Prompy_log.md                                      |  50 +++++++++
+ README.md                                          |  62 +++++++++++
+ .../resources/usability_sus_template.md            |  59 ++++++----
+ usability_responses.json                           |  72 ++++++++++++
+ 8 files changed, 376 insertions(+), 57 deletions(-)
+
+======================================================================
+Commit Hash : 37b32d9fffe4dc96039163e347a7d7543e56c9dc
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-09 00:13:28 +0700
 Subject     : fix(report): remove AI-generated critique and add rule in AGENTS.md
 
  AGENTS.md          |  4 +++-
  AI_Audit_Report.md |  2 +-
- Git_Commit_Log.txt |  8 ++++----
+ Git_Commit_Log.txt | 21 +++++++++++++++++----
  Main_report.md     |  9 +--------
  Prompy_log.md      | 25 +++++++++++++++++++++++++
- 5 files changed, 34 insertions(+), 14 deletions(-)
+ 5 files changed, 47 insertions(+), 14 deletions(-)
 
 ======================================================================
 Commit Hash : 5617808111dcca48a17a2cae00ba3510f3637613

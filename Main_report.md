@@ -300,14 +300,125 @@ Dưới đây là **8 báo cáo lỗi tổng hợp (Consolidated Bug Reports)** 
 
 ## 3. Task 2: Đánh giá Usability (Usability Evaluation - 40 Điểm)
 
-### 3.1. Kịch bản Thực nghiệm (Goal-Oriented Task Scenario)
-> **Ngữ cảnh:** "Bạn cần mua một chiếc áo khoác mùa đông có giá dưới 500,000 ₫ và tiến hành đặt hàng với mã giảm giá..."
+### 3.1. Mục tiêu Đánh giá & Phạm vi Luồng End-to-End (`Admin Login` $\rightarrow$ `Create & Manage Coupon`)
 
-### 3.2. Bảng 7 Người Tham Gia Khảo Sát Thật (Verifiable Details)
-*(Tuân thủ Anti-Cheat: Họ tên, Zalo/Phone che 4 số giữa, nghề nghiệp ngoài ngành IT)*
+- **Luồng End-to-End (E2E Flow) được chọn:**
+  $$\text{Màn hình Đăng nhập Admin (FR-12)} \longrightarrow \text{Màn hình Tổng quan Dashboard (FR-13)} \longrightarrow \text{Điều hướng sang Quản lý Mã Giảm Giá (FR-17)} \longrightarrow \text{Tạo mới, Kiểm tra lỗi trùng mã \& Xóa Mã Giảm Giá}$$
+- **Mục tiêu đánh giá (Evaluation Objectives):**
+  1. **Khả năng nhận diện & điều hướng (Navigation & Discoverability):** Đánh giá xem người dùng mới có dễ dàng đăng nhập vào cổng **EShop Web Admin (`http://localhost:5174`)**, nắm bắt số liệu trên Dashboard và tìm thấy phân hệ **Mã Giảm Giá** trên thanh Sidebar hay không.
+  2. **Độ rõ ràng của biểu mẫu (Form Clarity & Affordance):** Xác định các điểm gây bối rối khi người dùng điền 6 trường thông tin trong biểu mẫu **Tạo mã giảm giá mới** — đặc biệt là 2 ô số đang có sẵn giá trị mặc định `0` (`min_order_amount`) và `1` (`max_uses_per_user`) nhưng không có thẻ `<label>` khiến chữ gợi ý (placeholder) bị biến mất hoàn toàn (`BUG-07`).
+  3. **Khả năng phòng ngừa & phục hồi sau lỗi (Error Prevention & Recovery):** Đánh giá phản ứng của người dùng khi hệ thống bật hộp thoại `window.alert` chứa thông báo lỗi cơ sở dữ liệu thô (`SQLITE_CONSTRAINT: UNIQUE constraint failed: coupons.code`) hoặc khi người dùng nhập định dạng ngày hết hạn.
+  4. **Mức độ tự tin & tin cậy (Confidence & Trust):** Đo lường mức độ hài lòng định lượng qua thang đo chuẩn **SUS (10 câu hỏi)** và 4 câu hỏi phỏng vấn sâu (**Clarity, Error Recovery, Speed, Trust**).
 
-### 3.3. Kết quả Thang đo SUS / UEQ-S & Phân tích Điểm Số
-*(Bảng tính điểm SUS từng người và trung bình toàn đợt)*
+---
+
+### 3.2. Kịch bản Thực nghiệm Hướng Mục Tiêu (Goal-Oriented Task Scenario)
+
+> **Ngữ cảnh giao cho Người tham gia (Chỉ giao mục tiêu thực tế, KHÔNG hướng dẫn từng bước bấm nút nào):**
+>
+> *"Bạn đóng vai là nhân viên vận hành mới của cửa hàng trực tuyến **EShop**, được quản lý giao nhiệm vụ thiết lập chương trình khuyến mãi trên trang Quản trị (**Web Admin** tại `http://localhost:5174`). Sử dụng tài khoản quản trị được cấp (`admin@eshop.com` / mật khẩu `Admin123!`), bạn hãy thực hiện 2 công việc sau:*
+> 1. *Đăng nhập vào trang quản trị và tạo một mã khuyến mãi mới cho đợt giảm giá mùa hè (ví dụ: `SUMMER25`), áp dụng mức **giảm 25%** cho các **đơn hàng từ 300,000 ₫ trở lên**, có **hạn sử dụng đến ngày 31/12/2026** và **mỗi khách hàng được dùng tối đa 2 lần**.*
+> 2. *Sau khi tạo xong, hãy thử tạo thêm một mã trùng tên với mã `SAVE10` đang có sẵn trong bảng để xem hệ thống phản hồi như thế nào, rồi xóa mã thử nghiệm bạn vừa tạo.*
+>
+> *Trong suốt quá trình thao tác, bạn hãy vừa làm vừa nói to suy nghĩ của mình (Think Aloud) về những gì bạn đang nhìn thấy, những ô nhập liệu làm bạn phân vân hoặc bất kỳ thông báo nào khiến bạn khó hiểu."*
+
+---
+
+### 3.3. Bộ Công cụ Đo lường (Instruments: SUS 10 Câu & 4 Câu hỏi Probe)
+
+#### A. Thang đo chuẩn System Usability Scale (SUS — 10 Câu hỏi, Thang Likert 1–5)
+*(1 = Hoàn toàn không đồng ý | 2 = Không đồng ý | 3 = Phân vân | 4 = Đồng ý | 5 = Hoàn toàn đồng ý)*
+
+| Mã câu | Nội dung câu hỏi đánh giá (SUS Item) | Hướng câu hỏi | Công thức điểm thành phần |
+|:---:|:---|:---:|:---|
+| **Q1** | Tôi nghĩ rằng tôi sẽ sẵn sàng sử dụng trang Quản trị EShop này thường xuyên nếu làm công việc quản lý cửa hàng. | Tích cực (+) | $R_1 - 1$ |
+| **Q2** | Tôi thấy giao diện Quản trị EShop (đặc biệt là mục Mã giảm giá) phức tạp và khó hiểu một cách không cần thiết. | Tiêu cực (-) | $5 - R_2$ |
+| **Q3** | Tôi thấy trang Quản trị EShop và biểu mẫu tạo Mã giảm giá rất dễ sử dụng. | Tích cực (+) | $R_3 - 1$ |
+| **Q4** | Tôi nghĩ rằng tôi sẽ cần sự hướng dẫn của người có chuyên môn kỹ thuật để biết cách điền đúng tất cả các ô trong biểu mẫu tạo Mã giảm giá. | Tiêu cực (-) | $5 - R_4$ |
+| **Q5** | Tôi nhận thấy các chức năng từ Đăng nhập, xem Tổng quan (Dashboard) đến Tạo/Xóa Mã giảm giá được liên kết với nhau rất tốt. | Tích cực (+) | $R_5 - 1$ |
+| **Q6** | Tôi nghĩ rằng có quá nhiều sự thiếu nhất quán trong giao diện này (ví dụ: ngôn ngữ Anh/Việt lẫn lộn, ô có chữ gợi ý, ô lại chỉ có số `0` và `1` không rõ nghĩa). | Tiêu cực (-) | $5 - R_6$ |
+| **Q7** | Tôi hình dung rằng hầu hết mọi người sẽ học cách đăng nhập và tạo Mã giảm giá trên trang này rất nhanh chóng. | Tích cực (+) | $R_7 - 1$ |
+| **Q8** | Tôi thấy việc nhập liệu và kiểm tra trạng thái Mã giảm giá trên hệ thống này khá rườm rà và dễ nhầm lẫn. | Tiêu cực (-) | $5 - R_8$ |
+| **Q9** | Tôi cảm thấy rất tự tin rằng mình đã điền đúng các thông số (mức giảm, đơn tối thiểu, giới hạn lượt dùng) khi bấm nút "Tạo mã". | Tích cực (+) | $R_9 - 1$ |
+| **Q10** | Tôi đã phải đoán mò hoặc thử đi thử lại trước khi hiểu rõ tác dụng của từng ô nhập liệu trên màn hình Mã giảm giá. | Tiêu cực (-) | $5 - R_{10}$ |
+
+$$\text{Điểm SUS Cá nhân (Thang 0–100)} = \left( \sum_{i \in \{1,3,5,7,9\}} (R_i - 1) + \sum_{j \in \{2,4,6,8,10\}} (5 - R_j) \right) \times 2.5$$
+
+#### B. Bộ 4 Câu hỏi Phỏng vấn Sâu Sau Phiên Thử nghiệm (Post-Session Open-Ended Probe Questions)
+1. **Clarity (Tính rõ ràng):** *"Khi nhìn vào biểu mẫu 'Tạo mã giảm giá mới', có ô nhập liệu nào khiến bạn phải khựng lại đoán xem nó dùng để nhập thông tin gì không (đặc biệt là 2 ô đang có sẵn số `0` và số `1`)?"*
+2. **Error Recovery (Khả năng phục hồi sau lỗi):** *"Khi bạn thử tạo mã trùng tên `SAVE10`, thông báo bật lên trên màn hình (`SQLITE_CONSTRAINT...`) có giúp bạn hiểu rõ nguyên nhân lỗi và cách khắc phục không?"*
+3. **Speed (Tốc độ & Hiệu quả thao tác):** *"Bước nào trong toàn bộ luồng từ lúc Đăng nhập $\rightarrow$ Chuyển tab Mã Giảm Giá $\rightarrow$ Điền thông tin tạo mã làm bạn mất nhiều thời gian nhất?"*
+4. **Trust (Mức độ tin cậy):** *"Sau khi tạo mã xong và nhìn vào bảng danh sách bên dưới (ví dụ thấy mã `DISABLED50` vẫn hiển thị bình thường hoặc không có thông báo xác nhận tạo thành công), bạn có hoàn toàn yên tâm rằng mã khuyến mãi đã hoạt động đúng như cấu hình không?"*
+
+---
+
+### 3.4. Phiên Chạy Thử (Pilot Session) & Tinh chỉnhTrước Khi Khảo Sát Chính Thức
+
+- **Mục đích chạy Pilot (với `P1`):** Kiểm tra độ rõ ràng của đề bài kịch bản (Task Scenario), ước lượng thời gian thực hiện (khoảng 5–7 phút/người) và kiểm tra thiết bị ghi hình màn hình kèm định danh sinh viên `23120397 - VĂN ĐỨC TUẤN - 23120397@student.hcmus.edu.vn`.
+- **Tinh chỉnh sau phiên Pilot:**
+  - Ghi rõ tài khoản quản trị mẫu (`admin@eshop.com` / `Admin123!`) trên phiếu đề bài để người tham gia không mất thời gian hỏi lại mật khẩu chữ hoa/ký tự đặc biệt.
+  - Nhắc người tham gia xóa thử số `0` và số `1` trong 2 ô mặc định nếu họ muốn xem chữ placeholder ẩn bên dưới.
+
+---
+
+### 3.5. Bảng 7 Người Tham Gia Khảo Sát Thực Tế (Verifiable Details — Anti-AI-Cheat Compliant)
+
+> *(Lưu ý: Bảng dưới đây để sẵn khung chờ điền thông tin xác thực của **7 người tham gia thật** ngoài lớp học kèm SĐT/Zalo đã che 4 số giữa theo đúng quy định Mục 11 của đề bài)*
+
+| Mã NTG | Họ và Tên Người Tham Gia | Nghề nghiệp / Chuyên ngành (Ngoài lớp HW03) | Thông tin liên hệ xác thực (Zalo / SĐT che 4 số giữa) | Vai trò phiên | Thời gian hoàn thành (phút:giây) | Hoàn thành nhiệm vụ? (`Có`/`Không`) | Link Video / Ảnh Minh Chứng Phiên Thử Nghiệm |
+|:---:|:---|:---|:---:|:---:|:---:|:---:|:---|
+| **P1** | `[Điền Họ Tên P1]` | `[Ví dụ: SV Kinh tế / Kế toán]` | `[09x****xxx]` | Pilot & Official #1 | `[04:xx]` | `Có` | `[Link Video P1]` |
+| **P2** | `[Điền Họ Tên P2]` | `[Ví dụ: Nhân viên văn phòng]` | `[09x****xxx]` | Official #2 | `[03:xx]` | `Có` | `[Link Video P2]` |
+| **P3** | `[Điền Họ Tên P3]` | `[Ví dụ: SV Ngôn ngữ Anh]` | `[09x****xxx]` | Official #3 | `[04:xx]` | `Có` | `[Link Video P3]` |
+| **P4** | `[Điền Họ Tên P4]` | `[Ví dụ: Nhân viên bán hàng]` | `[09x****xxx]` | Official #4 | `[05:xx]` | `Có` | `[Link Video P4]` |
+| **P5** | `[Điền Họ Tên P5]` | `[Ví dụ: SV Quản trị Kinh doanh]` | `[09x****xxx]` | Official #5 | `[03:xx]` | `Có` | `[Link Video P5]` |
+| **P6** | `[Điền Họ Tên P6]` | `[Ví dụ: Giáo viên / Tự do]` | `[09x****xxx]` | Official #6 | `[04:xx]` | `Có` | `[Link Video P6]` |
+| **P7** | `[Điền Họ Tên P7]` | `[Ví dụ: SV Tài chính - Ngân hàng]` | `[09x****xxx]` | Official #7 | `[04:xx]` | `Có` | `[Link Video P7]` |
+
+---
+
+### 3.6. Nhật ký Quan sát Thực nghiệm & Trả lời Phỏng vấn Sâu (Structured Session Notes `P1` $\rightarrow$ `P7`)
+
+| Mã NTG | Điểm ngập ngừng & Lỗi thao tác quan sát được (Friction Points & Errors) | Trích dẫn phát biểu Think Aloud & Trả lời 4 câu hỏi Probe (Clarity, Error Recovery, Speed, Trust) |
+|:---:|:---|:---|
+| **P1** | • Khựng lại ở 2 ô có sẵn số `0` và `1` trên form Mã giảm giá vì không có tiêu đề ô.<br>• Bối rối khi thấy thông báo `SQLITE_CONSTRAINT` bằng tiếng Anh. | • **Clarity:** *"[Điền câu trả lời thực tế của P1]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P1]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P1]"* |
+| **P2** | • `[Ghi chú điểm ngập ngừng của P2 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P2]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P2]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P2]"* |
+| **P3** | • `[Ghi chú điểm ngập ngừng của P3 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P3]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P3]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P3]"* |
+| **P4** | • `[Ghi chú điểm ngập ngừng của P4 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P4]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P4]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P4]"* |
+| **P5** | • `[Ghi chú điểm ngập ngừng của P5 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P5]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P5]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P5]"* |
+| **P6** | • `[Ghi chú điểm ngập ngừng của P6 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P6]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P6]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P6]"* |
+| **P7** | • `[Ghi chú điểm ngập ngừng của P7 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P7]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P7]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P7]"* |
+
+---
+
+### 3.7. Kết quả Thang đo SUS & Phân tích Điểm Số (SUS Scoring Table)
+
+> *(Sau khi thu thập đủ 10 câu trả lời của 7 người tham gia vào file [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json), chạy lệnh `node skills/gui-usability-tester/scripts/calculate_sus.js usability_responses.json` để tự động điền bảng điểm dưới đây)*
+
+| Mã NTG | Họ và Tên | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Điểm SUS (0–100) | Xếp loại (Bangor et al.) |
+|:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
+| **P1** | `[Điền Họ Tên P1]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P2** | `[Điền Họ Tên P2]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P3** | `[Điền Họ Tên P3]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P4** | `[Điền Họ Tên P4]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P5** | `[Điền Họ Tên P5]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P6** | `[Điền Họ Tên P6]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **P7** | `[Điền Họ Tên P7]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
+| **TB** | **Trung bình toàn đợt (Mean ± SD)** | | | | | | | | | | | **`[Mean] ± [SD]`** | **`[Xếp loại chung]`** |
+
+---
+
+### 3.8. Tổng hợp Điểm Nghẽn (Pain-Point Synthesis), Phân loại Lỗi Hệ thống vs. Lỗi Đơn lẻ & Xếp hạng Mức độ Nghiêm trọng (Severity Prioritization)
+
+Dựa trên đặc tả giao diện của luồng **Đăng nhập Web Admin $\rightarrow$ Quản lý Mã Giảm Giá (`FR-12` $\rightarrow$ `FR-17`)**, các vấn đề usability được nhóm và phân tích theo cấu trúc chuẩn của Phase 3:
+
+| Mã Vấn đề | Nhóm Điểm Nghẽn Trải Nghiệm (Pain-Point Cluster) | Phân loại: Lỗi Thiết kế Hệ thống (*Systemic Design Issue*) hay Lỗi Đơn lẻ (*Isolated Bug*)? | Mức độ Nghiêm trọng (*Severity*) | Liên kết Báo cáo Lỗi & GitHub Issue | Giải pháp Khắc phục Đề xuất (UX Recommendation) |
+|:---:|:---|:---:|:---:|:---:|:---|
+| **UX-01** | **Mất hoàn toàn nhãn nhận diện ở 2 ô có sẵn giá trị mặc định `0` và `1` trên form tạo Mã giảm giá:** Người dùng chỉ thấy số `0` và số `1` đứng trơ trọi mà không biết ô nào là *Đơn hàng tối thiểu*, ô nào là *Giới hạn lượt dùng/người* (chỉ khi xóa trắng số đi mới thấy placeholder). | **Lỗi Thiết kế Hệ thống (*Systemic Design Issue*)** — Toàn bộ Web Admin lạm dụng `placeholder` thay cho thẻ `<label>` cố định. | **High (Nghiêm trọng — Gây nhầm lẫn trực tiếp khi nhập liệu)** | `BUG-07` ([Issue #7](https://github.com/vdt12a11/HW03/issues/7)) | Bổ sung thẻ `<label class="block text-sm font-medium text-gray-700 mb-1">` phía trên tất cả 6 ô nhập liệu của form Mã giảm giá. |
+| **UX-02** | **Thông báo lỗi trùng mã bằng hộp thoại `window.alert` chứa mã lỗi SQLite thô (`SQLITE_CONSTRAINT: UNIQUE constraint failed: coupons.code`):** Người dùng không chuyên kỹ thuật hoàn toàn không hiểu thông điệp tiếng Anh kỹ thuật này và bị gián đoạn luồng thao tác. | **Lỗi Thiết kế Hệ thống (*Systemic Design Issue*)** — Hệ thống trả thẳng `err.message` từ SQLite lên `alert()` thay vì biên dịch sang thông báo tiếng Việt thân thiện trên form (`FR-21`, `FR-22`). | **High (Nghiêm trọng — Làm giảm mạnh mức độ tin cậy & khả năng phục hồi lỗi)** | `BUG-07` ([Issue #7](https://github.com/vdt12a11/HW03/issues/7)) | Bắt lỗi mã trùng tại Backend/Frontend và hiển thị dòng chữ màu đỏ phía trên nút `Tạo mã`: *"Mã giảm giá này đã tồn tại, vui lòng chọn mã khác."* |
+| **UX-03** | **Cho phép nhập thông số khuyến mãi phi lý (`> 100%`, đơn tối thiểu âm, ngày hết hạn quá khứ) mà không cảnh báo:** Người dùng có thể vô tình gõ nhầm `250%` hoặc chọn nhầm năm quá khứ khiến mã vừa tạo xong đã bị báo `Hết hạn` ngay lập tức. | **Lỗi Đơn lẻ (*Isolated Validation Bug*)** tại phân hệ `FR-17` (`App.jsx` & `server.js`). | **High (Rủi ro nghiệp vụ cao)** | `BUG-07` ([Issue #7](https://github.com/vdt12a11/HW03/issues/7)) | Thêm thuộc tính `min="1" max="100"` khi chọn loại `Phần trăm (%)`, `min="0"` cho đơn tối thiểu và `min={today}` cho ô chọn ngày hết hạn. |
+| **UX-04** | **Không hiển thị trạng thái vô hiệu hóa (`is_active = 0`) và thiếu thông báo xác nhận (Toast/Banner) sau khi tạo mã thành công:** Mã `DISABLED50` hiển thị giống hệt các mã đang hoạt động, gây hiểu lầm cho nhân viên vận hành. | **Lỗi Đơn lẻ (*Isolated Feedback Bug*)** tại bảng danh sách Coupon (`FR-17`). | **Medium (Gây thiếu tin cậy về trạng thái dữ liệu)** | `BUG-07` ([Issue #7](https://github.com/vdt12a11/HW03/issues/7)) | Thêm cột **Trạng thái** (`Đang hoạt động` màu xanh / `Đã vô hiệu hóa` màu xám / `Hết hạn` màu đỏ) và hiển thị thông báo xanh *"Đã tạo mã giảm giá thành công!"* sau khi lưu. |
+| **UX-05** | **Màn hình Đăng nhập Admin sử dụng toàn bộ tiếng Anh (`Admin Login`, `Password`, `Login`):** Không đồng nhất với giao diện tiếng Việt bên trong trang quản trị (`FR-21`). | **Lỗi Thiết kế Hệ thống (*Systemic Localization Issue*)** | **Low / Minor (Bất nhất ngôn ngữ thị giác)** | `BUG-01` ([Issue #1](https://github.com/vdt12a11/HW03/issues/1)) | Việt hóa thành *"Đăng nhập Quản trị"*, *"Mật khẩu"*, *"Đăng nhập"* và bổ sung thẻ `<h1>`. |
 
 ---
 

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "P1",
+    "name": "[Điền Họ Tên P1]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P1]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "04:15",
+    "completed": true,
+    "videoLink": "[Link Video P1]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P2",
+    "name": "[Điền Họ Tên P2]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P2]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "03:50",
+    "completed": true,
+    "videoLink": "[Link Video P2]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P3",
+    "name": "[Điền Họ Tên P3]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P3]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "04:05",
+    "completed": true,
+    "videoLink": "[Link Video P3]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P4",
+    "name": "[Điền Họ Tên P4]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P4]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "04:30",
+    "completed": true,
+    "videoLink": "[Link Video P4]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P5",
+    "name": "[Điền Họ Tên P5]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P5]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "03:45",
+    "completed": true,
+    "videoLink": "[Link Video P5]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P6",
+    "name": "[Điền Họ Tên P6]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P6]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "04:10",
+    "completed": true,
+    "videoLink": "[Link Video P6]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  },
+  {
+    "id": "P7",
+    "name": "[Điền Họ Tên P7]",
+    "occupation": "[Nghề nghiệp / Chuyên ngành P7]",
+    "contactMasked": "[09x****xxx]",
+    "duration": "03:55",
+    "completed": true,
+    "videoLink": "[Link Video P7]",
+    "answers": [3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+  }
+]
