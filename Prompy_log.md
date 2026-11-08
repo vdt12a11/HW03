@@ -131,3 +131,53 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Mọi mốc quan trọng tiếp theo sẽ được tự động commit ngay lập tức.
 
 ---
+## [Prompt #6] - 2026-11-08 22:33:30
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Continue
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Đề xuất lộ trình triển khai chi tiết từng bước cho toàn bộ bài tập HW03 theo đúng quy chuẩn 100 điểm.
+  - Hướng dẫn chuẩn bị SUT EShop (`https://github.com/ttbhanh/eshop-sut`) và lựa chọn phạm vi (Scope Selection: Màn hình & Flow).
+  - Tự động ghi prompt log và commit Git nếu có artifact mới phát sinh.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Ghi bản ghi Prompt #6 vào `Prompy_log.md`.
+  - Phân tích và đưa ra kế hoạch hành động 4 giai đoạn cụ thể tương ứng với 3 Task và Agent Skill của đề bài.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Lộ trình 4 giai đoạn rõ ràng, có phân bổ công việc giữa AI và Sinh viên (Human Review), sẵn sàng bước vào Task 1.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Lập kế hoạch hành động chi tiết và phân công phối hợp).
+  - Bước tiếp theo: Chọn màn hình kiểm thử cho Task 1 và luồng E2E cho Task 2.
+
+---
+## [Prompt #7] - 2026-11-08 22:34:42
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > tạo file main report
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Khởi tạo file báo cáo chính thức `Main_report.md` theo đúng cấu trúc rubric 100 điểm của HW03.
+  - Thiết lập đầy đủ thông tin sinh viên, mục lục và các khung chương tương ứng với Task 1, Task 2, Task 3, Agent Skill, AI Critique và Bảng tự đánh giá điểm.
+  - Ghi nhận artifact vào `AI_Audit_Report.md`.
+  - Thực hiện Git commit theo đúng quy định tại `AGENTS.md`.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Đã clone xong repo `eshop-sut` về máy local để phục vụ kiểm thử.
+  - Tạo file [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) hoàn chỉnh khung sườn chuẩn mực khoa CNTT - FIT@HCMUS.
+  - Cập nhật dòng kiểm toán Artifact #1 vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Ghi bản ghi Prompt #7 vào `Prompy_log.md`.
+  - Thực hiện lệnh Git add và Git commit cho artifact báo cáo chính.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - File `Main_report.md` đã sẵn sàng đón nhận toàn bộ nội dung kiểm thử chi tiết.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Tạo lập kiến trúc tài liệu báo cáo tổng hợp chuẩn rubric).
+  - Tiếp theo: Thiết kế nội dung chi tiết Task 1 (> 40 items GUI Checklist).
+
+---
