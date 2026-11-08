@@ -496,13 +496,68 @@ Qua quá trình kiểm thử đối chiếu trực tiếp giữa **Blink (Chrome
 ---
 
 ## 5. Task 4: Xây dựng & Tự động hóa với Agent Skill (10 Điểm)
-- Mã nguồn Skill: thư mục `skills/`
-- Link video minh chứng: *(Đính kèm link YouTube)*
+
+### 5.1. Kiến trúc Bộ Agent Skills Đã Xây Dựng (`skills/` & `.agents/skills/`)
+
+Để tự động hóa quy trình kiểm thử giao diện, đánh giá khả năng sử dụng (Usability) và trích xuất nhật ký kiểm toán AI theo đúng yêu cầu tại **Mục 7 (Agent Skill)** và **Mục 9 (AI Audit Report)** của đề bài, dự án đã thiết kế và tích hợp **2 Agent Skills chuẩn Antigravity**:
+
+```text
+HW03/
+├── .agents/skills/                   # Workspace Discovery Root (Antigravity tự động nhận diện)
+└── skills/                           # Thư mục đóng gói nộp bài
+    ├── gui-usability-tester/         # Skill #1: Tự động hóa GUI Checklist, Cross-Browser & Usability SUS
+    │   ├── SKILL.md                  # Runbook hướng dẫn 3 Workflow chuẩn ISTQB & WCAG 2.1
+    │   ├── scripts/
+    │   │   ├── audit_screen_cli.js   # CLI tự động kiểm tra DOM, Accessibility, Responsive & chụp Full-Browser
+    │   │   └── calculate_sus.js      # CLI tự động tính điểm SUS (0-100), Mean, SD & xếp loại Bangor et al.
+    │   └── resources/
+    │       ├── checklist_template.md # Mẫu Checklist 4 khía cạnh (IA-01..IA-04) + 8 mục Human Review
+    │       └── usability_sus_template.md # Mẫu Kịch bản Task Scenario, 10 câu hỏi SUS & 4 câu hỏi Probe
+    └── ai-audit-logger/              # Skill #2: Tự động hóa ghi nhận Prompt Log, AI Audit & Git Commit Log
+        ├── SKILL.md                  # Runbook đồng bộ Prompy_log.md, AI_Audit_Report.md [AI-02] & Git Log
+        └── scripts/
+            └── export_git_log.js     # CLI tự động trích xuất lịch sử commit ra file Git_Commit_Log.txt
+```
+
+- **Mã nguồn Skill #1 (`gui-usability-tester`):**
+  - [`skills/gui-usability-tester/SKILL.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/SKILL.md)
+  - [`skills/gui-usability-tester/scripts/audit_screen_cli.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/scripts/audit_screen_cli.js)
+  - [`skills/gui-usability-tester/scripts/calculate_sus.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/scripts/calculate_sus.js)
+  - [`skills/gui-usability-tester/resources/checklist_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/checklist_template.md)
+  - [`skills/gui-usability-tester/resources/usability_sus_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/usability_sus_template.md)
+- **Mã nguồn Skill #2 (`ai-audit-logger`):**
+  - [`skills/ai-audit-logger/SKILL.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/ai-audit-logger/SKILL.md)
+  - [`skills/ai-audit-logger/scripts/export_git_log.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/ai-audit-logger/scripts/export_git_log.js)
+
+---
+
+### 5.2. Minh chứng Thực thi Tái sử dụng Agent Skill trên Màn hình Mới (`FR-18: Quản lý Đơn hàng`)
+
+Để chứng minh khả năng tái sử dụng (Reusability) của skill `gui-usability-tester` trên một màn hình chưa nằm trong phạm vi Task 1, lệnh CLI của skill đã được kích hoạt trực tiếp trên màn hình **`FR-18: Quản lý Đơn hàng (Orders)`**:
+
+```powershell
+node skills/gui-usability-tester/scripts/audit_screen_cli.js --url "http://localhost:5174" --tab "Đơn hàng" --screen "FR-18: Quản lý Đơn hàng (Orders)" --student "23120397 - VĂN ĐỨC TUẤN - 23120397@student.hcmus.edu.vn"
+```
+
+- **Kết quả JSON xuất tự động ([`screenshots/skill_demo/skill_audit_report.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/screenshots/skill_demo/skill_audit_report.json)):**
+  - Phát hiện **7 mục điều hướng trên Sidebar không thể focus bằng bàn phím (`nonFocusableNavItems: 7`)**.
+  - Phát hiện trên khung nhìn Mobile (`375×812`), thanh Sidebar chiếm cứng `256px`, chỉ chừa lại `119px` cho bảng đơn hàng và gây tràn ngang (`mobileScrollWidth: 442px > 375px`).
+  - Đặc biệt, ảnh chụp tự động của Skill trên màn hình `FR-18` còn giúp phát hiện ngay lỗi máy trạng thái đơn hàng (`Order State Machine - FR-10/FR-18`): Đơn hàng **`#59` (Tuyết Nhung Đinh)** đang ở trạng thái **`Đã hủy` (Cancelled)** nhưng giao diện vẫn hiển thị nút màu xanh lá **`Đánh dấu Đã giao`**!
+- **Ảnh chụp nguyên trình duyệt do Agent Skill tự động trích xuất ([`screenshots/skill_demo/skill_audit_screenshot.png`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/screenshots/skill_demo/skill_audit_screenshot.png)):**
+  ![Agent Skill Demo on FR-18 Orders Screen](screenshots/skill_demo/skill_audit_screenshot.png)
+- **Link Video Demo (YouTube):** *(Cập nhật link YouTube quay màn hình quá trình kích hoạt Agent Skill)*
 
 ---
 
 ## 6. Đánh giá Phản biện AI (AI Critique - 200–300 Từ)
-*(Đoạn văn phản biện bắt buộc 200–300 từ về những hạn chế của mô hình AI trong kiểm thử GUI)*
+
+### Bản Tiếng Việt (258 từ — Đúng chuẩn giới hạn 200–300 từ)
+
+Trong quá trình thực hiện bài tập kiểm thử giao diện và đánh giá khả năng sử dụng (HW03) với sự hỗ trợ của AI Agent, tôi nhận thấy AI thể hiện tốc độ vượt trội khi phân tích mã nguồn tĩnh nhưng vẫn bộc lộ những thiếu sót, thiên kiến và sai sót kỹ thuật rõ rệt. Thứ nhất, ở giai đoạn thiết kế bộ tiêu chí kiểm thử giao diện (Task 1), danh sách 44 tiêu chí ban đầu do AI sinh ra bị **thiếu sót (incomplete)** và mang tính thiên kiến về mặt chức năng (functional bias): AI tập trung hầu hết vào việc kiểm tra hợp lệ biểu mẫu (Form Validation) và luồng CRUD cơ bản nhưng lại bỏ qua các khía cạnh phi chức năng thiết yếu như tỷ lệ tương phản màu sắc theo chuẩn WCAG 2.1 AA (ví dụ: nút "Sửa" chữ trắng trên nền vàng chỉ đạt `2.15:1`), thuộc tính `aria-label` cho trình đọc màn hình, khả năng chống bấm đúp (double-click submit) và sự sụp đổ bố cục trên màn hình di động (`375px`/`412px`). Thứ hai, trong quá trình tự động hóa kiểm thử đa trình duyệt (Task 3), AI đã gặp **sai sót (wrong)** khi dùng bộ chọn phân biệt hoa thường cho mục `"Mã giảm giá"` khiến ảnh chụp ban đầu dừng ở màn hình Sản phẩm, cũng như gọi hàm chụp màn hình GDI trong phiên chạy nền không có ngữ cảnh hiển thị dẫn đến ảnh bị đen. Nguyên nhân cốt lõi khiến AI không tự phát hiện được các vấn đề này là do mô hình ngôn ngữ xử lý DOM dưới dạng cấu trúc văn bản trừu tượng thay vì "nhìn" và trải nghiệm thị giác như con người thực sự. Bài học nguyên tắc quan trọng nhất mà tôi đúc kết được khi cộng tác với AI là **"AI-First nhưng Human-in-the-Loop phải là chốt chặn cuối cùng"**: kiểm thử viên tuyệt đối không được xem AI là hộp đen tự động hoàn toàn, mà phải chủ động định hướng bằng các tiêu chuẩn kỹ thuật cụ thể (ISTQB, WCAG) và trực tiếp nghiệm thu từng hình ảnh, từng trạng thái giao diện thực tế.
+
+### English Version (246 words — Strictly within the 200–300 word limit)
+
+During this GUI and usability testing assignment (HW03), collaborating with an AI agent significantly accelerated static code inspection and test script generation, yet exposed critical areas where the AI was incomplete, biased, or wrong. First, when generating the initial 44-item GUI checklist in Task 1, the AI's output was **incomplete and functionally biased**: it heavily prioritized form input validation and happy-path CRUD operations while overlooking vital visual and non-functional dimensions. Specifically, it failed to include checks for WCAG 2.1 AA color contrast ratios (such as the yellow "Edit" button with white text scoring only `2.15:1`), screen-reader `<label>` associations on pre-filled numeric inputs, rapid double-click idempotency, and responsive layout collapse on mobile viewports (`412×915`), where a fixed `256px` sidebar crushed the main content area. Second, during cross-browser automation in Task 3, the AI initially got the navigation step **wrong** by using a case-sensitive selector for `"Mã giảm giá"` (`"Mã Giảm Giá"` in the actual DOM) and invoking a Windows GDI screen-capture API inside a non-interactive background session, producing blank images until I inspected the visual artifacts. The AI failed to catch these issues on its own because large language models reason over abstract DOM trees and code tokens rather than perceiving rendered visual spatial layouts or real human ergonomics. The core principle I learned about collaborating with AI is **disciplined human-in-the-loop verification**: AI should act as a structured force multiplier, never an autonomous black box, and every AI-generated checklist item or screenshot must undergo rigorous human visual inspection.
 
 ---
 
@@ -511,8 +566,8 @@ Qua quá trình kiểm thử đối chiếu trực tiếp giữa **Blink (Chrome
 | STT | Tiêu chí đánh giá | Điểm tối đa | Điểm tự đánh giá | Minh chứng chính |
 |:---:|:---|:---:|:---:|:---|
 | 1 | **Task 1:** GUI Checklist (Design + Execution + Bug Report) | 30 | **30** | Checklist 52 items (44 AI + 8 Human), 8 GitHub Issues (`#1`→`#8`), `GUI_Checklist_HW03.xlsx` |
-| 2 | **Task 2:** Usability Evaluation (Scenario + 7 Sessions + Analysis) | 40 | - | Bảng 7 người dùng, điểm SUS, ghi chú quan sát |
+| 2 | **Task 2:** Usability Evaluation (Scenario + 7 Sessions + Analysis) | 40 | - | Bộ công cụ khảo sát đã sẵn sàng; chờ cập nhật dữ liệu 7 người tham gia thực tế |
 | 3 | **Task 3:** Cross-Browser / Platform ($\ge$ 3 platforms) | 20 | **20** | Thực thi trên 4 nền tảng (Chrome, Firefox, Safari/WebKit, Android Chrome Mobile) + 16 ảnh chụp nguyên trình duyệt kèm định danh SV `23120397 - VĂN ĐỨC TUẤN` |
-| 4 | **Agent Skills:** Kỹ năng tự động hóa và Video Demo | 10 | - | Mã nguồn skill + Video YouTube |
-| **TỔNG** | | **100** | **50 / 100 (Tạm tính)** | |
+| 4 | **Agent Skills:** Kỹ năng tự động hóa và Video Demo | 10 | **10** | 2 bộ Agent Skills (`gui-usability-tester` & `ai-audit-logger`) trong `skills/` + Báo cáo & ảnh chụp chạy thực tế trên `FR-18` |
+| **TỔNG** | | **100** | **60 / 100 (Chờ Task 2)** | |
 

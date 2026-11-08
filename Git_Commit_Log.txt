@@ -1,0 +1,164 @@
+======================================================================
+GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
+Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
+Repository: https://github.com/vdt12a11/HW03
+Generated At: 2026-11-08T17:08:47.606Z
+======================================================================
+
+======================================================================
+Commit Hash : ef3091d5d10e3ae0014871d40c702eae22fb01aa
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-09 00:08:47 +0700
+Subject     : feat(skills): build gui-usability-tester and ai-audit-logger agent skills with live FR-18 demo
+
+ .agents/skills/ai-audit-logger/SKILL.md            |  55 +++++++
+ .../ai-audit-logger/scripts/export_git_log.js      |  37 +++++
+ .agents/skills/gui-usability-tester/SKILL.md       |  81 ++++++++++
+ .../resources/checklist_template.md                |  23 +++
+ .../resources/usability_sus_template.md            |  36 +++++
+ .../scripts/audit_screen_cli.js                    | 164 ++++++++++++++++++++
+ .../gui-usability-tester/scripts/calculate_sus.js  |  77 ++++++++++
+ AI_Audit_Report.md                                 |   1 +
+ Git_Commit_Log.txt                                 | 136 +++++++++++++++++
+ Main_report.md                                     |  67 ++++++++-
+ Prompy_log.md                                      |  27 ++++
+ screenshots/skill_demo/skill_audit_report.json     |  24 +++
+ screenshots/skill_demo/skill_audit_screenshot.png  | Bin 0 -> 84404 bytes
+ skills/ai-audit-logger/SKILL.md                    |  56 +++++++
+ skills/ai-audit-logger/scripts/export_git_log.js   |  38 +++++
+ skills/gui-usability-tester/SKILL.md               |  82 ++++++++++
+ .../resources/checklist_template.md                |  24 +++
+ .../resources/usability_sus_template.md            |  37 +++++
+ .../scripts/audit_screen_cli.js                    | 165 +++++++++++++++++++++
+ .../gui-usability-tester/scripts/calculate_sus.js  |  78 ++++++++++
+ 20 files changed, 1202 insertions(+), 6 deletions(-)
+
+======================================================================
+Commit Hash : b9074144107bf1e72fa2aaa14ad119c734c1e5a6
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 23:58:02 +0700
+Subject     : feat(task3): complete cross-browser and cross-platform testing across 4 platforms with 16 full-browser screenshots
+
+ AI_Audit_Report.md                                 |   1 +
+ Main_report.md                                     | 190 ++++++++++++++++++++-
+ Prompy_log.md                                      |  73 ++++++++
+ .../task3/P1_Chrome_Win11_FR13_Dashboard.png       | Bin 0 -> 61520 bytes
+ .../task3/P1_Chrome_Win11_FR14_Categories.png      | Bin 0 -> 65266 bytes
+ .../task3/P1_Chrome_Win11_FR15_Products.png        | Bin 0 -> 74282 bytes
+ screenshots/task3/P1_Chrome_Win11_FR17_Coupons.png | Bin 0 -> 83943 bytes
+ .../task3/P2_Firefox_Win11_FR13_Dashboard.png      | Bin 0 -> 57079 bytes
+ .../task3/P2_Firefox_Win11_FR14_Categories.png     | Bin 0 -> 61726 bytes
+ .../task3/P2_Firefox_Win11_FR15_Products.png       | Bin 0 -> 71397 bytes
+ .../task3/P2_Firefox_Win11_FR17_Coupons.png        | Bin 0 -> 82214 bytes
+ .../task3/P3_Safari_WebKit_FR13_Dashboard.png      | Bin 0 -> 165386 bytes
+ .../task3/P3_Safari_WebKit_FR14_Categories.png     | Bin 0 -> 182947 bytes
+ .../task3/P3_Safari_WebKit_FR15_Products.png       | Bin 0 -> 221636 bytes
+ .../task3/P3_Safari_WebKit_FR17_Coupons.png        | Bin 0 -> 240674 bytes
+ .../P4_Android_Chrome_Mobile_FR13_Dashboard.png    | Bin 0 -> 153573 bytes
+ .../P4_Android_Chrome_Mobile_FR14_Categories.png   | Bin 0 -> 162252 bytes
+ .../P4_Android_Chrome_Mobile_FR15_Products.png     | Bin 0 -> 164097 bytes
+ .../P4_Android_Chrome_Mobile_FR17_Coupons.png      | Bin 0 -> 151824 bytes
+ 19 files changed, 257 insertions(+), 7 deletions(-)
+
+======================================================================
+Commit Hash : d929027cad644f737e4d2e63d44cc65e9fae9db0
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 23:26:19 +0700
+Subject     : docs(task1): link 8 created GitHub issues to Main_report.md and AI_Audit_Report.md
+
+ AI_Audit_Report.md          |  2 +-
+ Bug_report_link_git_hub.txt |  9 +++++++++
+ Main_report.md              | 14 ++++++++++++--
+ Prompy_log.md               | 26 ++++++++++++++++++++++++++
+ 4 files changed, 48 insertions(+), 3 deletions(-)
+
+======================================================================
+Commit Hash : 3007409412d9bb1fda312c6fc5d03c5c12a06edb
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 23:18:50 +0700
+Subject     : feat(task1): execute 52 GUI checklist items, capture 8 bug screenshots, write 8 bug reports and export Excel checklist
+
+ AI_Audit_Report.md                                 |   3 +-
+ GUI_Checklist_HW03.xlsx                            | Bin 0 -> 14141 bytes
+ Main_report.md                                     | 279 ++++++++++++++++-----
+ Prompy_log.md                                      |  30 +++
+ screenshots/task1/bug01_login_english_no_h1.png    | Bin 0 -> 20584 bytes
+ .../task1/bug02_dashboard_double_revenue.png       | Bin 0 -> 29884 bytes
+ screenshots/task1/bug03_category_empty_submit.png  | Bin 0 -> 30371 bytes
+ .../bug04_products_form_and_unformatted_price.png  | Bin 0 -> 37317 bytes
+ .../task1/bug05_product_edit_mass_overwrite.png    | Bin 0 -> 50411 bytes
+ .../bug06_csv_import_no_accept_no_rollback.png     | Bin 0 -> 41431 bytes
+ ...g07_coupon_invalid_values_and_raw_sql_error.png | Bin 0 -> 55602 bytes
+ ...esponsive_mobile_sidebar_and_table_overflow.png | Bin 0 -> 68673 bytes
+ 12 files changed, 248 insertions(+), 64 deletions(-)
+
+======================================================================
+Commit Hash : 0323a5118aeb56e455e72d5da77fd0e2114fe2a1
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:55:56 +0700
+Subject     : feat(task1): add human review analysis and 8 additional checklist items (WCAG, responsive, dark mode, state)
+
+ AI_Audit_Report.md |  2 +-
+ Main_report.md     | 21 +++++++++++++++++++--
+ Prompy_log.md      | 25 +++++++++++++++++++++++++
+ 3 files changed, 45 insertions(+), 3 deletions(-)
+
+======================================================================
+Commit Hash : fdb1f3f989cd6a85686272073095a9141a4081b4
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:51:29 +0700
+Subject     : feat(task1): generate initial 44-item GUI checklist for FR-13, 14, 15, 17 in Web Admin and record Artifact #1
+
+ AI_Audit_Report.md |  2 +-
+ Main_report.md     | 75 +++++++++++++++++++++++++++++++++++++++++++-----------
+ Prompy_log.md      | 29 +++++++++++++++++++++
+ 3 files changed, 90 insertions(+), 16 deletions(-)
+
+======================================================================
+Commit Hash : 1f181a90f310af950e03c59167129c74163f4fed
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:43:59 +0700
+Subject     : chore: remove local eshop-sut folder in favor of workspace-level sut
+
+ Prompy_log.md | 51 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ eshop-sut     |  1 -
+ 2 files changed, 51 insertions(+), 1 deletion(-)
+
+======================================================================
+Commit Hash : 37315f06fab80f3ae4bc63fe95cbe60b7bc47a2a
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:40:41 +0700
+Subject     : fix(audit): remove scaffold from AI audit report and clarify test artifact criteria in AGENTS.md
+
+ AGENTS.md          | 14 +++++++++++---
+ AI_Audit_Report.md |  2 +-
+ Main_report.md     |  1 +
+ Prompy_log.md      | 26 ++++++++++++++++++++++++++
+ 4 files changed, 39 insertions(+), 4 deletions(-)
+
+======================================================================
+Commit Hash : a4e2ad355bd9cdae157bee9add428adb70ea404a
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:37:38 +0700
+Subject     : feat(report): initialize Main_report.md scaffold according to HW03 rubric
+
+ AI_Audit_Report.md |   2 +-
+ Main_report.md     | 116 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ Prompy_log.md      |  50 +++++++++++++++++++++++
+ eshop-sut          |   1 +
+ 4 files changed, 168 insertions(+), 1 deletion(-)
+
+======================================================================
+Commit Hash : 4e9fe3a8074c8d7580215fc29e04e73fd4779db8
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-08 22:32:43 +0700
+Subject     : chore: initial commit with project guidelines, AI audit setup, and prompt log
+
+ 2026.HW03.GUI Usability_En.pdf                | Bin 0 -> 231854 bytes
+ AGENTS.md                                     |  56 +++++++++++
+ AI_Audit_Report.md                            |  40 ++++++++
+ Prompy_log.md                                 | 133 ++++++++++++++++++++++++++
+ [AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 0 -> 47730 bytes
+ ~$I-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 0 -> 162 bytes
+ 6 files changed, 229 insertions(+)
+

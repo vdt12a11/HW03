@@ -441,3 +441,30 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Thực hiện **Task 2 (Usability Evaluation)** hoặc **Task 4 (Agent Skills)**.
 
 ---
+
+## [Prompt #18] - 2026-11-08 23:59:15
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Hãy viết agent skill
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Thiết kế bộ **Agent Skills (Task 4 - 10 điểm)** theo đúng chuẩn Antigravity Customization System (`SKILL.md` có YAML frontmatter `name`, `description` + thư mục `scripts/` và `resources/`) đáp ứng cả **Mục 7 (Agent Skill)** và **Mục 9 (AI Audit Report)** của đề bài.
+  - Thực thi thử nghiệm skill trên một màn hình mới của SUT (`FR-18: Quản lý Đơn hàng`) để có minh chứng tái sử dụng thực tế (End-to-End Reusability).
+  - Bổ sung luôn Mục 5 (Task 4 - Agent Skill) và Mục 6 (AI Critique 200–300 từ) vào [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md), ghi nhận `Artifact #4` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), xuất [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt) và đồng bộ lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tạo 2 bộ Agent Skills trong `skills/` và đồng bộ sang `.agents/skills/`:
+    1. **`gui-usability-tester`**: Gồm [`SKILL.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/SKILL.md), [`scripts/audit_screen_cli.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/scripts/audit_screen_cli.js), [`scripts/calculate_sus.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/scripts/calculate_sus.js), [`resources/checklist_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/checklist_template.md) và [`resources/usability_sus_template.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/resources/usability_sus_template.md).
+    2. **`ai-audit-logger`**: Gồm [`SKILL.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/ai-audit-logger/SKILL.md) và [`scripts/export_git_log.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/ai-audit-logger/scripts/export_git_log.js).
+  - Chạy kiểm chứng `calculate_sus.js --self-test`, `export_git_log.js` và chạy `audit_screen_cli.js` trên màn hình `FR-18: Quản lý Đơn hàng`, xuất ra [`skill_audit_report.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/screenshots/skill_demo/skill_audit_report.json) và [`skill_audit_screenshot.png`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/screenshots/skill_demo/skill_audit_screenshot.png).
+  - Cập nhật Mục 5, Mục 6, Mục 7 trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) và ghi `Artifact #4` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hoàn tất trọn vẹn 2 Agent Skills kèm các script CLI thực thi tự động, báo cáo kiểm chứng trên `FR-18`, file `Git_Commit_Log.txt` và đoạn văn phản biện AI Critique (200–300 từ).
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Đóng gói quy trình kiểm thử thành Agent Skills có khả năng tái sử dụng tự động).
+  - Bước tiếp theo: Thực hiện khảo sát 7 người tham gia thực tế cho **Task 2 (Usability Evaluation - 40 điểm)** và dùng `calculate_sus.js` để tổng hợp điểm SUS.
+
+---

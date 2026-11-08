@@ -1,0 +1,24 @@
+{
+  "skill": "gui-usability-tester",
+  "timestamp": "2026-11-08T17:04:22.345Z",
+  "targetUrl": "http://localhost:5174",
+  "screen": "FR-18: Quản lý Đơn hàng (Orders)",
+  "studentIdentity": "23120397 - VĂN ĐỨC TUẤN - 23120397@student.hcmus.edu.vn",
+  "screenshot": "D:\\Học Tập\\Kiem thu phan mem\\HW03\\screenshots\\skill_demo\\skill_audit_screenshot.png",
+  "findings": {
+    "h1Count": 1,
+    "h2Count": 1,
+    "totalInputs": 0,
+    "unlabeledInputs": 0,
+    "nonFocusableNavItems": 7,
+    "desktopViewport": {
+      "width": 1366,
+      "scrollWidth": 1366
+    },
+    "hasDesktopOverflow": false,
+    "mobileViewportWidth": 375,
+    "mobileScrollWidth": 442,
+    "sidebarWidthOnMobile": 256,
+    "remainingContentWidth": 119
+  }
+}
