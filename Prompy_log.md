@@ -312,3 +312,33 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Thực thi (Execute) 52 tiêu chí này trên SUT EShop để ghi nhận Pass/Fail và lập Bug Report.
 
 ---
+## [Prompt #13] - 2026-11-08 22:58:29
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bạn hãy execute
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Thực thi (Execute) toàn bộ 52 tiêu chí trong GUI Checklist (44 mục AI sinh + 8 mục Human Review) trực tiếp trên hệ thống EShop Web Admin (`FR-13`, `FR-14`, `FR-15`, `FR-17`).
+  - Khởi chạy Backend API (`localhost:3000`) và Web Admin (`localhost:5174`), sử dụng Chrome DevTools Protocol (CDP) để chạy các kịch bản kiểm thử giao diện và tự động chụp ảnh màn hình cho toàn bộ các mục `Failed`.
+  - Cập nhật trạng thái `Passed` / `Failed`, cột `Notes` kèm đường dẫn ảnh chụp màn hình vào `Main_report.md`.
+  - Lập bảng thống kê kết quả thực thi (Mục 2.3) và 8 báo cáo lỗi chi tiết `BUG-01` → `BUG-08` (Mục 2.4).
+  - Xuất file Excel `GUI_Checklist_HW03.xlsx` gồm 2 sheet (`GUI_Checklist_52_Items` và `Test_Summary_And_Bugs`).
+  - Cập nhật **Artifact #2** vào `AI_Audit_Report.md` và thực hiện Git commit.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Đọc và đối chiếu toàn bộ mã nguồn `frontend-admin/src/App.jsx`, `backend/server.js`, `backend/database.js` và đặc tả `eshop-sut/README.md` (`FR-13` → `FR-24`).
+  - Viết và chạy script thực thi tự động `run_task1_execution.js` trên bản sao CSDL tạm thời (bảo toàn 100% CSDL gốc), chụp thành công 8 ảnh minh chứng lỗi tại `screenshots/task1/bug01..bug08.png`.
+  - Cập nhật toàn bộ kết quả thực thi (27 Passed / 25 Failed) và 8 Bug Reports vào [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Sinh file [`GUI_Checklist_HW03.xlsx`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/GUI_Checklist_HW03.xlsx).
+  - Ghi nhận **Artifact #2: GUI Checklist Execution & 8 Bug Reports** vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Thực hiện `git add` và `git commit` lưu trữ bước thực thi và báo cáo lỗi.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hoàn tất trọn vẹn Task 1 (Checklist Design + Human Review + Execution 52 items + 8 Bug Reports kèm ảnh chụp màn hình + Excel Checklist).
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate - Tự động hóa thực thi kiểm thử giao diện và thu thập bằng chứng trực quan).
+  - Bước tiếp theo: Đẩy 8 Bug Reports lên GitHub Issues (nếu đã có repo GitHub) hoặc chuyển sang chuẩn bị **Task 2 (Usability Evaluation)** và **Task 3 (Cross-Browser / Cross-Platform)**.
+
+---
