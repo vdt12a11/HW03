@@ -2,19 +2,32 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-10T09:07:09.708Z
+Generated At: 2026-11-10T17:22:37.897Z
 ======================================================================
 
 ======================================================================
-Commit Hash : 832dbcb0598b9ce97d7d2709e5d097b1326cba96
+Commit Hash : 9ffc7b2e8450741bd9ae41913818f170bbbf4aa8
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-11 00:22:37 +0700
+Subject     : feat(task2): ingest real survey responses for 6 participants from Google Sheets and compute SUS scores
+
+ Git_Commit_Log.txt       |   8 ++--
+ Main_report.md           |  55 +++++++++++++-----------
+ Prompy_log.md            |  28 ++++++++++++
+ README.md                |   2 +-
+ usability_responses.json | 109 ++++++++++++++++++++++++++++++++---------------
+ 5 files changed, 139 insertions(+), 63 deletions(-)
+
+======================================================================
+Commit Hash : 06b9cc9578a7a78d0da15626388eabe1adca7c81
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-10 16:07:09 +0700
 Subject     : feat(task2): embed full E2E task scenario instructions directly into Google Form generator
 
- Git_Commit_Log.txt    |  8 +++---
+ Git_Commit_Log.txt    | 19 ++++++++++---
  Prompy_log.md         | 23 ++++++++++++++++
  create_google_form.gs | 75 ++++++++++++++++++++++++++++++++++-----------------
- 3 files changed, 78 insertions(+), 28 deletions(-)
+ 3 files changed, 89 insertions(+), 28 deletions(-)
 
 ======================================================================
 Commit Hash : 59a31af07f0483852f00bd1e8829c82c2a6f5179

@@ -363,17 +363,18 @@ $$\text{Điểm SUS Cá nhân (Thang 0–100)} = \left( \sum_{i \in \{1,3,5,7,9\
 
 ### 3.5. Bảng 7 Người Tham Gia Khảo Sát Thực Tế (Verifiable Details — Anti-AI-Cheat Compliant)
 
-> *(Lưu ý: Bảng dưới đây để sẵn khung chờ điền thông tin xác thực của **7 người tham gia thật** ngoài lớp học kèm SĐT/Zalo đã che 4 số giữa theo đúng quy định Mục 11 của đề bài)*
+> **Tuân thủ quy định Anti-AI-Cheat (Mục 11):** Toàn bộ dữ liệu thu thập trực tiếp từ kết quả điền Google Form của người dùng thật ngoài lớp học (ghi nhận tự động tại Google Sheet liên kết). Số điện thoại/Zalo được che 4 số giữa để bảo mật thông tin cá nhân.
+> *(Hiện tại hệ thống đã ghi nhận đầy đủ **6 người tham gia thực tế** (`P1` $\rightarrow$ `P6`); vị trí `P7` đang ở trạng thái chờ người thứ 7 hoàn tất khảo sát).*
 
 | Mã NTG | Họ và Tên Người Tham Gia | Nghề nghiệp / Chuyên ngành (Ngoài lớp HW03) | Thông tin liên hệ xác thực (Zalo / SĐT che 4 số giữa) | Vai trò phiên | Thời gian hoàn thành (phút:giây) | Hoàn thành nhiệm vụ? (`Có`/`Không`) | Link Video / Ảnh Minh Chứng Phiên Thử Nghiệm |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---|
-| **P1** | `[Điền Họ Tên P1]` | `[Ví dụ: SV Kinh tế / Kế toán]` | `[09x****xxx]` | Pilot & Official #1 | `[04:xx]` | `Có` | `[Link Video P1]` |
-| **P2** | `[Điền Họ Tên P2]` | `[Ví dụ: Nhân viên văn phòng]` | `[09x****xxx]` | Official #2 | `[03:xx]` | `Có` | `[Link Video P2]` |
-| **P3** | `[Điền Họ Tên P3]` | `[Ví dụ: SV Ngôn ngữ Anh]` | `[09x****xxx]` | Official #3 | `[04:xx]` | `Có` | `[Link Video P3]` |
-| **P4** | `[Điền Họ Tên P4]` | `[Ví dụ: Nhân viên bán hàng]` | `[09x****xxx]` | Official #4 | `[05:xx]` | `Có` | `[Link Video P4]` |
-| **P5** | `[Điền Họ Tên P5]` | `[Ví dụ: SV Quản trị Kinh doanh]` | `[09x****xxx]` | Official #5 | `[03:xx]` | `Có` | `[Link Video P5]` |
-| **P6** | `[Điền Họ Tên P6]` | `[Ví dụ: Giáo viên / Tự do]` | `[09x****xxx]` | Official #6 | `[04:xx]` | `Có` | `[Link Video P6]` |
-| **P7** | `[Điền Họ Tên P7]` | `[Ví dụ: SV Tài chính - Ngân hàng]` | `[09x****xxx]` | Official #7 | `[04:xx]` | `Có` | `[Link Video P7]` |
+| **P1** | **Phạm Gia Lâm** | Điện tử viễn thông | `0333****005` | Pilot & Official #1 | `04:15` | `Có` | `[Link Video P1]` |
+| **P2** | **Lê Hoàng Nhật Anh** | Hệ thống thông tin | `0336****174` | Official #2 | `03:50` | `Có` | `[Link Video P2]` |
+| **P3** | **Quản Trọng Vũ** | Kỹ sư Tự Động Hóa | `0942****236` | Official #3 | `04:30` | `Có` | `[Link Video P3]` |
+| **P4** | **VĂN ĐỨC TRUNG** | Sinh viên kỹ thuật | `0961****221` | Official #4 | `03:40` | `Có` | `[Link Video P4]` |
+| **P5** | **Nguyễn Sơn Tùng** | Sinh viên | `0862****397` | Official #5 | `05:10` | `Có` | `[Link Video P5]` |
+| **P6** | **Nguyễn Tùng Lâm** | Học sinh | `0912****111` | Official #6 | `04:45` | `Có` | `[Link Video P6]` |
+| **P7** | *[Chờ người tham gia thứ 7]* | *[Chờ cập nhật]* | `[09x****xxx]` | Official #7 | *[--:--]* | *[Chờ]* | *[Link Video P7]* |
 
 ---
 
@@ -381,30 +382,36 @@ $$\text{Điểm SUS Cá nhân (Thang 0–100)} = \left( \sum_{i \in \{1,3,5,7,9\
 
 | Mã NTG | Điểm ngập ngừng & Lỗi thao tác quan sát được (Friction Points & Errors) | Trích dẫn phát biểu Think Aloud & Trả lời 4 câu hỏi Probe (Clarity, Error Recovery, Speed, Trust) |
 |:---:|:---|:---|
-| **P1** | • Khựng lại ở 2 ô có sẵn số `0` và `1` trên form Mã giảm giá vì không có tiêu đề ô.<br>• Bối rối khi thấy thông báo `SQLITE_CONSTRAINT` bằng tiếng Anh. | • **Clarity:** *"[Điền câu trả lời thực tế của P1]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P1]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P1]"* |
-| **P2** | • `[Ghi chú điểm ngập ngừng của P2 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P2]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P2]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P2]"* |
-| **P3** | • `[Ghi chú điểm ngập ngừng của P3 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P3]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P3]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P3]"* |
-| **P4** | • `[Ghi chú điểm ngập ngừng của P4 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P4]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P4]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P4]"* |
-| **P5** | • `[Ghi chú điểm ngập ngừng của P5 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P5]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P5]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P5]"* |
-| **P6** | • `[Ghi chú điểm ngập ngừng của P6 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P6]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P6]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P6]"* |
-| **P7** | • `[Ghi chú điểm ngập ngừng của P7 khi nhập form Coupon]` | • **Clarity:** *"[Điền câu trả lời thực tế của P7]"*<br>• **Error Recovery:** *"[Điền câu trả lời thực tế của P7]"*<br>• **Speed & Trust:** *"[Điền câu trả lời thực tế của P7]"* |
+| **P1** | • Khựng lại ở ô nhập liệu dưới tên mã vì không có tiêu đề ô rõ ràng.<br>• Nhận thấy trang đăng nhập có độ trễ nhẹ khi xác thực. | • **Clarity:** *"Có ô dưới tên mã gây phân vân vì không có nhãn/tiêu đề rõ ràng."*<br>• **Error Recovery:** *"Có, hiểu được thông báo khi tạo thử mã."*<br>• **Speed:** *"Bước đăng nhập bị delay một chút."*<br>• **Trust:** *"Có, thấy mã hiển thị ngay trên bảng sau khi tạo."* |
+| **P2** | • Phải dừng lại suy đoán ý nghĩa các ô nhập liệu vì thiếu nhãn hướng dẫn.<br>• Bối rối khi thử tạo mã trùng `SAVE10` do hệ thống bật thông báo lỗi kỹ thuật. | • **Clarity:** *"Có, các ô nhập liệu thiếu nhãn hướng dẫn cố định."*<br>• **Error Recovery:** *"Không, thông báo lỗi khó hiểu không giúp người dùng biết cách sửa lại cho đúng."*<br>• **Speed:** *"Bước điền thông tin tạo mã mất nhiều thời gian nhất vì phải suy đoán."*<br>• **Trust:** *"Không, chưa an tâm vì hệ thống không có thông báo xác nhận thành công rõ ràng."* |
+| **P3** | • Khựng lại khi nhập số lượng và ngày hết hạn.<br>• Phản hồi rằng thông báo lỗi cơ sở dữ liệu tiếng Anh gây cản trở trải nghiệm. | • **Clarity:** *"Có, phải đoán ý nghĩa ô số lượng và định dạng ngày."*<br>• **Error Recovery:** *"Không, thông báo lỗi tiếng Anh kỹ thuật (SQLITE) không thân thiện với người dùng thông thường."*<br>• **Speed:** *"Các thao tác chuyển trang và lưu mã đáp ứng tốt."*<br>• **Trust:** *"Đúng, thấy mã lưu vào danh sách nên yên tâm."* |
+| **P4** | • Thao tác tương đối nhanh trên form nhưng bị giật mình khi gặp popup `SQLITE_CONSTRAINT`. | • **Clarity:** *"Không gặp khó khăn quá lớn khi nhập form."*<br>• **Error Recovery:** *"Không, thông báo SQLITE thô gây bối rối, không biết sai ở đâu."*<br>• **Speed:** *"Bước đăng nhập ban đầu hơi mất thời gian."*<br>• **Trust:** *"Có, bảng danh sách cập nhật ngay mã vừa tạo."* |
+| **P5** | • Mất nhiều thời gian nhất (hơn 5 phút) do 2 ô nhập ngày và số lượng không có ký hiệu hay nhãn rõ ràng.<br>• Hoàn toàn không hiểu lỗi khi tạo mã trùng. | • **Clarity:** *"2 ô nhập ngày, số lượng không có ký hiệu rõ ràng, rất dễ nhập nhầm."*<br>• **Error Recovery:** *"Khó hiểu, không rõ ràng về việc sai gì hay lỗi ở dòng nào."*<br>• **Speed:** *"Bước tạo mã và kiểm tra thông tin mất nhiều thời gian nhất."*<br>• **Trust:** *"Chưa biết vì chưa dùng thử mã giảm giá này trên giỏ hàng."* |
+| **P6** | • Khựng lại ở ô nhập số tiền và số lượt dùng.<br>• Gặp trở ngại ngay từ bước đăng nhập đầu tiên. | • **Clarity:** *"Ô nhập số tiền và số lượt dùng làm tôi rất phân vân."*<br>• **Error Recovery:** *"Không hiểu là lỗi báo là gì (lỗi mã code tiếng Anh)."*<br>• **Speed:** *"Đăng nhập lúc đầu không được mượt."*<br>• **Trust:** *"Không biết, cảm giác chưa chắc chắn về tính đúng đắn của mã."* |
+| **P7** | *[Chờ ghi nhận quan sát từ người tham gia thứ 7]* | • **Clarity:** *[Chờ cập nhật]*<br>• **Error Recovery:** *[Chờ cập nhật]*<br>• **Speed & Trust:** *[Chờ cập nhật]* |
 
 ---
 
 ### 3.7. Kết quả Thang đo SUS & Phân tích Điểm Số (SUS Scoring Table)
 
-> *(Sau khi thu thập đủ 10 câu trả lời của 7 người tham gia vào file [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json), chạy lệnh `node skills/gui-usability-tester/scripts/calculate_sus.js usability_responses.json` để tự động điền bảng điểm dưới đây)*
+> **Công thức chuẩn SUS (Brooke, 1996):**
+> $$\text{Điểm cá nhân} = \left( \sum_{i \in \{1,3,5,7,9\}} (R_i - 1) + \sum_{j \in \{2,4,6,8,10\}} (5 - R_j) \right) \times 2.5$$
+> Dữ liệu được tính toán tự động bằng công cụ kiểm thử [`skills/gui-usability-tester/scripts/calculate_sus.js`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester/scripts/calculate_sus.js):
 
 | Mã NTG | Họ và Tên | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | Điểm SUS (0–100) | Xếp loại (Bangor et al.) |
 |:---:|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
-| **P1** | `[Điền Họ Tên P1]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P2** | `[Điền Họ Tên P2]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P3** | `[Điền Họ Tên P3]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P4** | `[Điền Họ Tên P4]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P5** | `[Điền Họ Tên P5]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P6** | `[Điền Họ Tên P6]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **P7** | `[Điền Họ Tên P7]` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | `-` | **`[Chờ tính]`** | `-` |
-| **TB** | **Trung bình toàn đợt (Mean ± SD)** | | | | | | | | | | | **`[Mean] ± [SD]`** | **`[Xếp loại chung]`** |
+| **P1** | **Phạm Gia Lâm** | 4 | 2 | 4 | 3 | 4 | 4 | 3 | 2 | 4 | 2 | **65.0** | Marginal / OK (Cần cải thiện - Grade D) |
+| **P2** | **Lê Hoàng Nhật Anh** | 3 | 3 | 2 | 2 | 4 | 4 | 2 | 3 | 3 | 3 | **47.5** | Poor / Unacceptable (Kém - Grade F) |
+| **P3** | **Quản Trọng Vũ** | 5 | 2 | 5 | 5 | 5 | 1 | 2 | 5 | 5 | 5 | **60.0** | Marginal / OK (Cần cải thiện - Grade D) |
+| **P4** | **VĂN ĐỨC TRUNG** | 4 | 4 | 3 | 2 | 5 | 1 | 5 | 5 | 5 | 1 | **72.5** | Good (Tốt - Grade B) |
+| **P5** | **Nguyễn Sơn Tùng** | 2 | 2 | 2 | 4 | 4 | 5 | 2 | 5 | 2 | 4 | **30.0** | Poor / Unacceptable (Kém - Grade F) |
+| **P6** | **Nguyễn Tùng Lâm** | 2 | 2 | 3 | 4 | 3 | 5 | 2 | 4 | 3 | 5 | **32.5** | Poor / Unacceptable (Kém - Grade F) |
+| **P7** | *[Chờ người thứ 7]* | - | - | - | - | - | - | - | - | - | - | *[Chờ tính]* | *[Chờ tính]* |
+| **TB** | **Trung bình hiện tại (6 người)** | | | | | | | | | | | **51.25 ± 15.99** | **Marginal / OK (Cần cải thiện - Grade D)** |
+
+> **Nhận xét kết quả đo lường bước đầu:**
+> - Điểm số SUS trung bình của 6 người tham gia thực tế đạt **51.25 / 100 điểm** (xếp loại **Grade D - Marginal / Cần cải thiện**), phản ánh đúng các hạn chế cố hữu của giao diện Web Admin SUT: thiếu thẻ `<label>`, 2 ô số có sẵn giá trị `0` và `1` làm mất placeholder (`BUG-07`), và thông báo lỗi kỹ thuật tiếng Anh `SQLITE_CONSTRAINT` gây cản trở lớn đối với người dùng không chuyên IT.
+> - Có sự phân hóa rõ rệt: người có nền tảng kỹ thuật (`P4`: 72.5 điểm) có thể tự thích nghi nhanh hơn, trong khi người dùng phổ thông hoặc học sinh (`P5`: 30.0 điểm, `P6`: 32.5 điểm) đánh giá mức độ rườm rà và khó hiểu rất cao.
 
 ---
 

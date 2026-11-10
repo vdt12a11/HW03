@@ -31,7 +31,7 @@
 | **Số tiêu chí Không Đạt (Failed)** | **25 / 52 (48.08%)** | Mọi tiêu chí Failed đều có ghi chú nguyên nhân và ảnh chụp màn hình đính kèm. |
 | **Tổng số Báo cáo Lỗi (Bugs Discovered & Reported)** | **8 Bugs (`BUG-01` → `BUG-08`)** | Đã báo cáo đầy đủ trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) và tạo **8 GitHub Issues (`#1` → `#8`)** kèm ảnh chụp tại [https://github.com/vdt12a11/HW03/issues](https://github.com/vdt12a11/HW03/issues). |
 | **Số lượng Nền tảng Kiểm thử Đa Trình duyệt (Cross-Browser Platforms)** | **4 nền tảng** | `P1`: Google Chrome 146 (Win 11), `P2`: Mozilla Firefox 157.0 (Win 11), `P3`: Apple Safari / WebKit 27.2 (macOS), `P4`: Android Chrome Mobile (Pixel 7 Android 14) — kèm **16 ảnh chụp nguyên cửa sổ trình duyệt** tại [`screenshots/task3/`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/screenshots/task3). |
-| **Số lượng Người tham gia Khảo sát Usability (Participants - Task 2)** | **7 người tham gia** | Thực hiện theo kịch bản Goal-Oriented Task Scenario + Thang đo chuẩn SUS (10 câu) + 4 câu hỏi Probe (Clarity, Error Recovery, Speed, Trust). |
+| **Số lượng Người tham gia Khảo sát Usability (Participants - Task 2)** | **6 / 7 người tham gia thực tế** | Đã thu thập và phân tích phản hồi thực tế của 6 người qua Google Sheet (`SUS Mean: 51.25 ± 15.99`); chờ người thứ 7 để hoàn thiện 100%. |
 | **Bộ Agent Skills & Video Demo (Task 4)** | **2 Agent Skills** | [`skills/gui-usability-tester/`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/gui-usability-tester) và [`skills/ai-audit-logger/`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/skills/ai-audit-logger).<br>**Link Video Demo YouTube:** `[Cập nhật Link YouTube Demo]` |
 
 ---

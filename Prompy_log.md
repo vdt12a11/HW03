@@ -611,3 +611,31 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Sinh viên chạy lại `create_google_form.gs` trên Google Apps Script để lấy link form tích hợp gửi cho 7 người tham gia.
 
 ---
+
+## [Prompt #25] - 2026-11-11 00:17:53
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > https://docs.google.com/spreadsheets/d/1yGnsEvbMU5nxW3JKJYsewwpGwl37wbVOZbYgUaOLLkQ/edit?gid=1523291505#gid=1523291505
+  > bạn có thể vào link này để xem kết quả khảo sát xong ghi vào báo cáo không, hiện tại chỉ mới có 6 người
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Truy xuất dữ liệu thời gian thực từ Google Sheet của sinh viên chứa câu trả lời khảo sát Usability (Task 2) của 6 người tham gia thực tế.
+  - Sử dụng công cụ `calculate_sus.js` để tính toán chính xác điểm SUS từng người (thang 0–100), xếp hạng Bangor et al., điểm trung bình (Mean) và độ lệch chuẩn (SD).
+  - Trích xuất chi tiết câu trả lời cho 4 câu hỏi phỏng vấn sâu (Clarity, Error Recovery, Speed, Trust) và đưa vào Mục 3.5, 3.6, 3.7 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) cùng [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json).
+  - Giữ lại vị trí P7 ở trạng thái chờ người thứ 7 hoàn tất để đạt đúng tiêu chuẩn 7 người tham gia của đề bài.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tải dữ liệu CSV từ Google Sheet và bóc tách 6 dòng phản hồi của: Phạm Gia Lâm, Lê Hoàng Nhật Anh, Quản Trọng Vũ, VĂN ĐỨC TRUNG, Nguyễn Sơn Tùng, Nguyễn Tùng Lâm.
+  - Tính toán điểm SUS: P1=65.0, P2=47.5, P3=60.0, P4=72.5, P5=30.0, P6=32.5 -> Điểm trung bình Mean = 51.25, SD = 15.99 (Grade D - Marginal / OK).
+  - Cập nhật Mục 3.5 (Bảng thông tin xác thực đã che 4 số giữa SĐT), Mục 3.6 (Nhật ký quan sát & câu trả lời Probe), Mục 3.7 (Bảng điểm SUS 10 câu) trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Cập nhật [`usability_responses.json`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/usability_responses.json) và [`README.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/README.md).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Toàn bộ kết quả thực nghiệm thực tế của 6 người tham gia đã được đồng bộ chuẩn xác vào báo cáo, kèm phân tích định lượng SUS và định tính theo câu trả lời thực tế.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Phân tích dữ liệu thực nghiệm Usability) & G9.4 (Collaborate).
+  - Bước tiếp theo: Khi có thêm kết quả của người thứ 7 trên Google Sheet, cập nhật dòng P7 để hoàn tất 100% Task 2.
+
+---
