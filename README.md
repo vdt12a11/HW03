@@ -60,3 +60,4 @@
    - `screenshots/task1/`: 8 ảnh chụp minh chứng lỗi Task 1.
    - `screenshots/task3/`: 16 ảnh chụp nguyên cửa sổ trình duyệt trên 4 nền tảng Task 3.
    - `screenshots/skill_demo/`: Ảnh chụp và báo cáo JSON thực thi Agent Skill trên màn hình `FR-18`.
+

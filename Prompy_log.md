@@ -543,3 +543,48 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Khi sinh viên quay xong video và có điểm SUS của 7 người tham gia, gửi dữ liệu để AI chạy `calculate_sus.js` điền tự động vào Mục 3.5, 3.6, 3.7.
 
 ---
+
+## [Prompt #22] - 2026-11-09 00:38:19
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > tôi cần gửi ccho người tham gia những thứ gì
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Soạn sẵn trọn bộ nội dung tin nhắn Copy-Paste (gồm **Tin nhắn 1: Đề bài nhiệm vụ** gửi trước khi làm và **Tin nhắn 2: Phiếu chấm điểm 10 câu SUS + 4 câu hỏi ngắn** gửi sau khi làm xong) để sinh viên gửi trực tiếp qua Zalo/Messenger cho 7 người tham gia.
+  - Lưu thành file [`Phieu_Khao_Sat_Nguoi_Tham_Gia.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Phieu_Khao_Sat_Nguoi_Tham_Gia.md) để sinh viên tiện mở và copy bất cứ lúc nào.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tạo file [`Phieu_Khao_Sat_Nguoi_Tham_Gia.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Phieu_Khao_Sat_Nguoi_Tham_Gia.md) và ghi nhận `[Prompt #22]` vào `Prompy_log.md`.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Hai mẫu tin nhắn Zalo/Messenger hoàn chỉnh và danh mục 3 thứ cần chuẩn bị khi làm việc với mỗi người tham gia.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate).
+  - Bước tiếp theo: Sinh viên gửi 2 tin nhắn trên cho 7 người tham gia, thu kết quả trả về và dán vào khung chat để AI tổng hợp tự động vào báo cáo.
+
+---
+
+## [Prompt #23] - 2026-11-10 15:51:30
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > cái phiếu chấm diểm bạn có thể tạo google form giùm mình đc ko
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Vì Google Forms yêu cầu quyền tài khoản Google cá nhân của người dùng để khởi tạo trên Google Drive, giải pháp nhanh và chuẩn xác nhất là viết một kịch bản **Google Apps Script tự động 100% (`create_google_form.gs`)**.
+  - Khi người dùng dán script vào `https://script.google.com` và bấm **Chạy (Run)** 1 lần duy nhất, hệ thống Google sẽ tự động sinh ra toàn bộ Google Form (3 trang: Thông tin cá nhân, 10 câu hỏi thang đo tuyến tính 1–5 chuẩn SUS, 4 câu hỏi mở Probe Questions) kèm theo 1 file Google Sheet tự động thu thập câu trả lời và xuất ngay đường link rút gọn (`forms.gle/...`) để gửi cho 7 người tham gia.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tạo file [`create_google_form.gs`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/create_google_form.gs) với hàm `createHW03UsabilityForm()`.
+  - Ghi nhận `[Prompt #23]` vào `Prompy_log.md`, xuất lại `Git_Commit_Log.txt` và đồng bộ lên GitHub.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - File [`create_google_form.gs`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/create_google_form.gs) cùng hướng dẫn 4 bước tạo Google Form tự động trong 15 giây.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Tự động hóa tạo biểu mẫu khảo sát trực tuyến bằng Google Apps Script).
+  - Bước tiếp theo: Người dùng chạy script lấy link Google Form gửi cho 7 người tham gia, sau đó copy dữ liệu từ Google Sheet gửi lại để hoàn tất báo cáo.
+
+---

@@ -2,24 +2,40 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-08T17:31:41.663Z
+Generated At: 2026-11-10T08:53:49.438Z
 ======================================================================
 
 ======================================================================
-Commit Hash : 3999d4f725f0316639eafd09a45e8794a6534f47
+Commit Hash : e5840b3877bd24d34e2c0156572912b31cfdab01
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-10 15:53:49 +0700
+Subject     : feat(task2): add 1-click Google Apps Script to generate Google Form and Sheet for SUS survey
+
+ Git_Commit_Log.txt                            |   8 +-
+ HW03.code-workspace                           |  11 +++
+ Phieu_Khao_Sat_Nguoi_Tham_Gia.md              |  66 +++++++++++++++
+ Prompy_log.md                                 |  45 +++++++++++
+ README.md                                     |   1 +
+ create_google_form.gs                         | 112 ++++++++++++++++++++++++++
+ usability_responses.json                      |   1 +
+ ~$I-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 162 -> 0 bytes
+ 8 files changed, 240 insertions(+), 4 deletions(-)
+
+======================================================================
+Commit Hash : c8a03512ea5e31345028dd964414bc8ca4d79687
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-09 00:31:41 +0700
 Subject     : feat(task2): prepare complete E2E Admin Login and Coupon Creation usability framework and README
 
  .../resources/usability_sus_template.md            |  58 ++++++----
  AI_Audit_Report.md                                 |   1 +
- Git_Commit_Log.txt                                 |   8 +-
+ Git_Commit_Log.txt                                 |  24 +++-
  Main_report.md                                     | 123 ++++++++++++++++++++-
  Prompy_log.md                                      |  50 +++++++++
  README.md                                          |  62 +++++++++++
  .../resources/usability_sus_template.md            |  59 ++++++----
  usability_responses.json                           |  72 ++++++++++++
- 8 files changed, 376 insertions(+), 57 deletions(-)
+ 8 files changed, 392 insertions(+), 57 deletions(-)
 
 ======================================================================
 Commit Hash : 37b32d9fffe4dc96039163e347a7d7543e56c9dc
