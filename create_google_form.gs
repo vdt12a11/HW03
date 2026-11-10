@@ -1,16 +1,14 @@
 /**
- * SCRIPT TỰ ĐỘNG TẠO GOOGLE FORM & GOOGLE SHEET THU THẬP KẾT QUẢ TASK 2 (HW03)
+ * SCRIPT TỰ ĐỘNG TẠO GOOGLE FORM (GỒM CẢ ĐỀ BÀI NHIỆM VỤ + PHIẾU CHẤM ĐIỂM SUS + 4 CÂU HỎI)
  * Sinh viên: VĂN ĐỨC TUẤN — MSSV: 23120397 — Email: 23120397@student.hcmus.edu.vn
  *
  * HƯỚNG DẪN SỬ DỤNG (CHỈ MẤT 15 GIÂY):
- * 1. Mở trang: https://script.google.com/home/start
- * 2. Bấm nút "Dự án mới" (New project) ở góc trái trên cùng.
- * 3. Xóa đoạn code mặc định `function myFunction() {}` và DÁN TOÀN BỘ file này vào.
- * 4. Bấm biểu tượng Đĩa mềm (Ctrl + S) để lưu, sau đó bấm nút "Chạy" (Run) ở thanh công cụ phía trên.
- * 5. Lần đầu chạy, Google sẽ hỏi quyền truy cập Google Forms -> Bấm "Xem lại quyền" (Review permissions) -> Chọn tài khoản Google của bạn -> "Nâng cao" (Advanced) -> "Đi tới..." -> "Cho phép" (Allow).
- * 6. Nhìn xuống khung "Nhật ký thực thi" (Execution log) ở dưới cùng, bạn sẽ thấy ngay:
- *    - LINK GỬI CHO 7 NGƯỜI THAM GIA ĐIỀN (Published URL)
- *    - LINK XEM KẾT QUẢ EXCEL TRÊN GOOGLE SHEET (Spreadsheet URL)
+ * 1. Mở trang: https://script.google.com/home/start -> Bấm "Dự án mới" (New project).
+ * 2. Xóa đoạn code mặc định và DÁN TOÀN BỘ file này vào -> Bấm Ctrl + S để lưu.
+ * 3. Bấm nút "Chạy" (Run) ở thanh công cụ phía trên (Cấp quyền Allow nếu chạy lần đầu).
+ * 4. Xem ở khung "Nhật ký thực thi" (Execution log) bên dưới để lấy:
+ *    - LINK GOOGLE FORM GỬI CHO 7 NGƯỜI THAM GIA (chứa sẵn cả Đề bài nhiệm vụ + Câu hỏi khảo sát!)
+ *    - LINK GOOGLE SHEET THU KẾT QUẢ TỰ ĐỘNG
  */
 
 function createHW03UsabilityForm() {
@@ -18,20 +16,49 @@ function createHW03UsabilityForm() {
   var form = FormApp.create(formTitle);
 
   form.setDescription(
-    'Phiếu khảo sát thuộc Bài tập HW03 (GUI & Usability Testing) - Môn Kiểm thử Phần mềm (FIT@HCMUS).\n' +
+    'Chào bạn, mình đang thực hiện bài tập đánh giá giao diện phần mềm EShop (HW03 - Môn Kiểm thử Phần mềm - ĐH KHTN, ĐHQG-HCM).\n' +
     'Sinh viên thực hiện: VĂN ĐỨC TUẤN (MSSV: 23120397 - Email: 23120397@student.hcmus.edu.vn).\n\n' +
-    'Cảm ơn bạn đã vừa hoàn thành thao tác thử nghiệm luồng: Đăng nhập trang Quản trị EShop (http://localhost:5174) -> Tạo mới & Quản lý Mã Giảm Giá (Coupon).\n' +
-    'Nhờ bạn dành khoảng 2 phút đánh giá cảm nhận thực tế của mình dưới đây nhé!'
+    '📌 LƯU Ý QUAN TRỌNG TRƯỚC KHI BẮT ĐẦU:\n' +
+    '- Bài khảo sát này chỉ nhằm mục đích tìm lỗi thiết kế của TRANG WEB, hoàn toàn KHÔNG chấm điểm hay đánh giá kỹ năng của bạn.\n' +
+    '- Trong suốt quá trình thao tác, bạn hãy tự nhiên VỪA LÀM VỪA NÓI TO SUY NGHĨ CỦA MÌNH (Think Aloud) — ví dụ: bạn đang tìm nút nào, ô nhập liệu nào làm bạn phân vân, hoặc thông báo nào khiến bạn thấy khó hiểu.'
   );
   form.setCollectEmail(false);
   form.setConfirmationMessage('Cảm ơn bạn rất nhiều! Câu trả lời của bạn đã được ghi nhận thành công.');
 
   // =========================================================================
-  // PHẦN 1: THÔNG TIN NGƯỜI THAM GIA (VERIFIABLE PARTICIPANT DETAILS)
+  // PHẦN 1: ĐỀ BÀI NHIỆM VỤ THỰC HÀNH (TASK SCENARIO) & THÔNG TIN NGƯỜI THAM GIA
   // =========================================================================
   form.addSectionHeaderItem()
-    .setTitle('I. Thông tin người tham gia')
-    .setHelpText('Lưu ý: Số điện thoại/Zalo của bạn sẽ được bảo mật và che 4 số ở giữa (ví dụ: 090****123) khi đưa vào báo cáo học thuật.');
+    .setTitle('PHẦN I: ĐỀ BÀI NHIỆM VỤ THỰC HÀNH TRÊN TRANG ESHOP ADMIN')
+    .setHelpText(
+      'Bạn hãy đọc kỹ kịch bản nhiệm vụ dưới đây, thực hiện thao tác trên trình duyệt đang mở sẵn, sau đó kéo xuống dưới để điền đánh giá nhé:\n\n' +
+      '------------------------------------------------------------\n' +
+      '🌐 ĐỊA CHỈ TRANG QUẢN TRỊ: http://localhost:5174\n' +
+      '🔑 TÀI KHOẢN ĐĂNG NHẬP:\n' +
+      '   • Email: admin@eshop.com\n' +
+      '   • Mật khẩu: Admin123!\n' +
+      '------------------------------------------------------------\n\n' +
+      '🎯 BỐI CẢNH & NHIỆM VỤ CỦA BẠN (Gồm 2 công việc ngắn):\n' +
+      'Bạn đóng vai là nhân viên vận hành mới của cửa hàng EShop, được giao nhiệm vụ thiết lập mã khuyến mãi trên trang Quản trị:\n\n' +
+      '👉 Việc 1: Hãy đăng nhập vào trang quản trị, tìm đến mục quản lý khuyến mãi (Mã Giảm Giá) và tạo một mã giảm giá mới cho đợt hè có tên là SUMMER25 với các điều kiện sau:\n' +
+      '   • Loại giảm giá: Giảm theo Phần trăm (%) với mức giảm là 25%\n' +
+      '   • Áp dụng cho đơn hàng tối thiểu từ: 300,000 đ trở lên\n' +
+      '   • Hạn sử dụng đến ngày: 31/12/2026\n' +
+      '   • Giới hạn số lần sử dụng: Tối đa 2 lần cho mỗi khách hàng.\n\n' +
+      '👉 Việc 2: Sau khi tạo xong mã SUMMER25, bạn hãy thử tạo thêm một mã nữa nhưng đặt tên trùng với mã SAVE10 (đang có sẵn trong bảng bên dưới) để xem hệ thống phản hồi như thế nào; cuối cùng hãy bấm Xóa mã SUMMER25 mà bạn vừa tạo.\n\n' +
+      '💡 Nhắc nhẹ: Trong lúc làm Việc 1 và Việc 2, bạn hãy vừa thao tác vừa nói to suy nghĩ của mình nhé!'
+    );
+
+  var confirmTask = form.addCheckboxItem();
+  confirmTask.setTitle('Xác nhận hoàn thành thao tác thử nghiệm:')
+    .setChoices([
+      confirmTask.createChoice('Tôi đã đọc đề bài, vừa nói to suy nghĩ (Think Aloud) và hoàn thành thao tác trên trang Quản trị EShop')
+    ])
+    .setRequired(true);
+
+  form.addSectionHeaderItem()
+    .setTitle('THÔNG TIN NGƯỜI THAM GIA')
+    .setHelpText('Lưu ý bảo mật: Số điện thoại/Zalo của bạn chỉ dùng để xác thực người tham gia thật và SẼ ĐƯỢC CHE 4 SỐ Ở GIỮA (ví dụ: 090****123) khi đưa vào báo cáo.');
 
   form.addTextItem()
     .setTitle('1. Họ và tên của bạn')
@@ -49,8 +76,8 @@ function createHW03UsabilityForm() {
   // PHẦN 2: THANG ĐO CHUẨN SYSTEM USABILITY SCALE (SUS - 10 CÂU HỎI 1..5)
   // =========================================================================
   form.addPageBreakItem()
-    .setTitle('II. Đánh giá Giao diện theo Thang đo SUS (10 câu)')
-    .setHelpText('Vui lòng chọn mức độ đồng ý của bạn từ 1 (Hoàn toàn không đồng ý) đến 5 (Hoàn toàn đồng ý) cho từng phát biểu dưới đây.');
+    .setTitle('PHẦN II: ĐÁNH GIÁ GIAO DIỆN THEO THANG ĐO SUS (10 CÂU)')
+    .setHelpText('Dựa trên trải nghiệm vừa thao tác ở Phần I, bạn hãy chọn mức độ đồng ý từ 1 (Hoàn toàn không đồng ý) đến 5 (Hoàn toàn đồng ý) cho từng phát biểu dưới đây.');
 
   var susQuestions = [
     'Q1. Tôi nghĩ rằng tôi sẽ sẵn sàng sử dụng trang Quản trị EShop này thường xuyên nếu làm công việc quản lý cửa hàng.',
@@ -77,8 +104,8 @@ function createHW03UsabilityForm() {
   // PHẦN 3: BỐN CÂU HỎI PHỎNG VẤN NGẮN (OPEN-ENDED PROBE QUESTIONS)
   // =========================================================================
   form.addPageBreakItem()
-    .setTitle('III. Câu hỏi cảm nhận chi tiết (4 câu ngắn)')
-    .setHelpText('Bạn chỉ cần ghi ngắn gọn 1-2 câu theo đúng trải nghiệm vừa rồi của bạn.');
+    .setTitle('PHẦN III: CÂU HỎI CẢM NHẬN CHI TIẾT (4 CÂU NGẮN)')
+    .setHelpText('Bạn chỉ cần ghi ngắn gọn 1–2 câu theo đúng cảm nhận thực tế vừa rồi của bạn.');
 
   form.addParagraphTextItem()
     .setTitle('1. [Độ rõ ràng - Clarity]: Khi nhìn vào khung "Tạo mã giảm giá mới", có ô nhập liệu nào làm bạn phải khựng lại đoán xem nó dùng để nhập gì không (đặc biệt là 2 ô đang có sẵn số 0 và số 1)?')
@@ -103,10 +130,10 @@ function createHW03UsabilityForm() {
   form.setDestination(FormApp.DestinationType.SPREADSHEET, ss.getId());
 
   Logger.log('==============================================================');
-  Logger.log('✅ ĐÃ TẠO GOOGLE FORM THÀNH CÔNG!');
-  Logger.log('👉 LINK GỬI CHO NGƯỜI THAM GIA ĐIỀN (Short URL): ' + form.shortenFormUrl(form.getPublishedUrl()));
-  Logger.log('👉 LINK GỬI CHO NGƯỜI THAM GIA ĐIỀN (Full URL) : ' + form.getPublishedUrl());
-  Logger.log('👉 LINK CHỈNH SỬA FORM (Admin Edit URL)         : ' + form.getEditUrl());
-  Logger.log('👉 LINK GOOGLE SHEET XEM KẾT QUẢ                : ' + ss.getUrl());
+  Logger.log('✅ ĐÃ TẠO GOOGLE FORM (KÈM ĐỀ BÀI NHIỆM VỤ) THÀNH CÔNG!');
+  Logger.log('👉 LINK GỬI CHO NGƯỜI THAM GIA (Short URL): ' + form.shortenFormUrl(form.getPublishedUrl()));
+  Logger.log('👉 LINK GỬI CHO NGƯỜI THAM GIA (Full URL) : ' + form.getPublishedUrl());
+  Logger.log('👉 LINK CHỈNH SỬA FORM (Admin Edit URL)   : ' + form.getEditUrl());
+  Logger.log('👉 LINK GOOGLE SHEET XEM KẾT QUẢ          : ' + ss.getUrl());
   Logger.log('==============================================================');
 }

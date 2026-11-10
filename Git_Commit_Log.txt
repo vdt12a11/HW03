@@ -2,16 +2,27 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-10T08:53:49.438Z
+Generated At: 2026-11-10T09:07:09.708Z
 ======================================================================
 
 ======================================================================
-Commit Hash : e5840b3877bd24d34e2c0156572912b31cfdab01
+Commit Hash : 832dbcb0598b9ce97d7d2709e5d097b1326cba96
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-10 16:07:09 +0700
+Subject     : feat(task2): embed full E2E task scenario instructions directly into Google Form generator
+
+ Git_Commit_Log.txt    |  8 +++---
+ Prompy_log.md         | 23 ++++++++++++++++
+ create_google_form.gs | 75 ++++++++++++++++++++++++++++++++++-----------------
+ 3 files changed, 78 insertions(+), 28 deletions(-)
+
+======================================================================
+Commit Hash : 59a31af07f0483852f00bd1e8829c82c2a6f5179
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-10 15:53:49 +0700
 Subject     : feat(task2): add 1-click Google Apps Script to generate Google Form and Sheet for SUS survey
 
- Git_Commit_Log.txt                            |   8 +-
+ Git_Commit_Log.txt                            |  24 +++++-
  HW03.code-workspace                           |  11 +++
  Phieu_Khao_Sat_Nguoi_Tham_Gia.md              |  66 +++++++++++++++
  Prompy_log.md                                 |  45 +++++++++++
@@ -19,7 +30,7 @@ Subject     : feat(task2): add 1-click Google Apps Script to generate Google For
  create_google_form.gs                         | 112 ++++++++++++++++++++++++++
  usability_responses.json                      |   1 +
  ~$I-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 162 -> 0 bytes
- 8 files changed, 240 insertions(+), 4 deletions(-)
+ 8 files changed, 256 insertions(+), 4 deletions(-)
 
 ======================================================================
 Commit Hash : c8a03512ea5e31345028dd964414bc8ca4d79687

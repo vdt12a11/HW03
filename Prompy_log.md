@@ -588,3 +588,26 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Người dùng chạy script lấy link Google Form gửi cho 7 người tham gia, sau đó copy dữ liệu từ Google Sheet gửi lại để hoàn tất báo cáo.
 
 ---
+
+## [Prompt #24] - 2026-11-10 16:04:59
+
+- **AI Tool:** Antigravity (Gemini 4 Argon / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > hãy ghi nhiệm vụ trên form này luôn
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Tích hợp trực tiếp toàn bộ **Đề bài Nhiệm vụ Thực hành (Task Scenario)** — bao gồm địa chỉ `http://localhost:5174`, tài khoản `admin@eshop.com` / `Admin123!`, yêu cầu nói to suy nghĩ (Think Aloud), Việc 1 (tạo mã `SUMMER25` giảm 25%, đơn từ 300,000 ₫, hạn 31/12/2026, tối đa 2 lần/người), Việc 2 (thử tạo trùng mã `SAVE10` rồi xóa mã `SUMMER25`) và ô tích xác nhận đã hoàn thành thao tác — ngay ở **Phần I** đầu tiên của Google Form trong [`create_google_form.gs`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/create_google_form.gs).
+  - Nhờ đó, sinh viên chỉ cần gửi **1 đường link Google Form duy nhất** cho người tham gia là họ vừa đọc đề bài trên form, vừa làm, vừa chấm điểm luôn trên cùng 1 trang.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Cập nhật [`create_google_form.gs`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/create_google_form.gs) bổ sung mục `PHẦN I: ĐỀ BÀI NHIỆM VỤ THỰC HÀNH TRÊN TRANG ESHOP ADMIN` kèm checkbox xác nhận hoàn thành nhiệm vụ.
+  - Ghi nhận `[Prompt #24]` vào `Prompy_log.md`, xuất lại `Git_Commit_Log.txt` và đồng bộ lên GitHub.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - File [`create_google_form.gs`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/create_google_form.gs) đã tích hợp trọn vẹn cả Đề bài nhiệm vụ lẫn Phiếu khảo sát SUS + 4 câu hỏi Probe trong 1 Google Form duy nhất.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate).
+  - Bước tiếp theo: Sinh viên chạy lại `create_google_form.gs` trên Google Apps Script để lấy link form tích hợp gửi cho 7 người tham gia.
+
+---
