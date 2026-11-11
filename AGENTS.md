@@ -60,7 +60,7 @@ Theo mục **12 (Git Commit Log)** của đề bài HW03:
    - Danh sách 7 người tham gia khảo sát Usability (Task 2) và hình ảnh thực thi đa nền tảng (Task 3) phải là dữ liệu thật do người dùng thực hiện. AI **tuyệt đối không** tự ý bịa đặt hoặc làm giả thông tin cá nhân/kết quả thực nghiệm thực tế của người tham gia.
 3. **Phù hợp với SUT (System Under Test):**
    - SUT của môn học là **EShop** (`https://github.com/ttbhanh/eshop-sut`). Mọi kịch bản, form, flow, màn hình đều bám sát theo hệ thống này.
-4. **Không tự viết phần AI Critique (Mục 10 đề bài / Mục 6 Main Report):**
-   - Phần **AI Critique (200–300 từ)** là phần phản biện cá nhân của sinh viên đối với AI. AI **tuyệt đối không** được tự ý viết hộ mục này.
+4. **Quy định về phần AI Critique (Mục 10 đề bài / Mục 6 Main Report):**
+   - Phần **AI Critique (200–300 từ)** là phần phản biện cá nhân của sinh viên đối với AI. AI chỉ hỗ trợ dự thảo theo yêu cầu tường minh của sinh viên và phải bảo đảm bám sát 100% các thiếu sót/sai sót kỹ thuật thực tế phát sinh trong phiên làm việc (trả lời đủ 3 câu hỏi: AI sai/thiếu gì, vì sao không bắt được lỗi, và bài học nguyên tắc rút ra). Sinh viên phải rà soát, nghiệm thu nội dung cuối cùng.
 5. **Bảo toàn dữ liệu Log:**
    - Không được overwrite các bản ghi log và audit trước, luôn ghi tiếp (append) để lưu giữ toàn bộ tiến trình.

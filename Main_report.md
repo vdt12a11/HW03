@@ -368,12 +368,12 @@ $$\text{Điểm SUS Cá nhân (Thang 0–100)} = \left( \sum_{i \in \{1,3,5,7,9\
 
 | Mã NTG | Họ và Tên Người Tham Gia | Nghề nghiệp / Chuyên ngành (Ngoài lớp HW03) | Thông tin liên hệ xác thực (Zalo / SĐT che 4 số giữa) | Vai trò phiên | Thời gian hoàn thành (phút:giây) | Hoàn thành nhiệm vụ? (`Có`/`Không`) | Link Video / Ảnh Minh Chứng Phiên Thử Nghiệm |
 |:---:|:---|:---|:---:|:---:|:---:|:---:|:---|
-| **P1** | **Phạm Gia Lâm** | Điện tử viễn thông | `0333****005` | Pilot & Official #1 | `04:15` | `Có` | `[Link Video P1]` |
-| **P2** | **Lê Hoàng Nhật Anh** | Hệ thống thông tin | `0336****174` | Official #2 | `03:50` | `Có` | `[Link Video P2]` |
-| **P3** | **Quản Trọng Vũ** | Kỹ sư Tự Động Hóa | `0942****236` | Official #3 | `04:30` | `Có` | `[Link Video P3]` |
-| **P4** | **VĂN ĐỨC TRUNG** | Sinh viên kỹ thuật | `0961****221` | Official #4 | `03:40` | `Có` | `[Link Video P4]` |
-| **P5** | **Nguyễn Sơn Tùng** | Sinh viên | `0862****397` | Official #5 | `05:10` | `Có` | `[Link Video P5]` |
-| **P6** | **Nguyễn Tùng Lâm** | Học sinh | `0912****111` | Official #6 | `04:45` | `Có` | `[Link Video P6]` |
+| **P1** | **Phạm Gia Lâm** | Điện tử viễn thông | `0333****005` | Pilot & Official #1 | `04:15` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
+| **P2** | **Lê Hoàng Nhật Anh** | Hệ thống thông tin | `0336****174` | Official #2 | `03:50` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
+| **P3** | **Quản Trọng Vũ** | Kỹ sư Tự Động Hóa | `0942****236` | Official #3 | `04:30` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
+| **P4** | **VĂN ĐỨC TRUNG** | Sinh viên kỹ thuật | `0961****221` | Official #4 | `03:40` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
+| **P5** | **Nguyễn Sơn Tùng** | Sinh viên | `0862****397` | Official #5 | `05:10` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
+| **P6** | **Nguyễn Tùng Lâm** | Học sinh | `Không có` | Official #6 | `04:45` | `Có` | `https://drive.google.com/drive/folders/1rzJGj6MylA1z41F-O0nezpu6Ij54it_O` |
 | **P7** | *[Chờ người tham gia thứ 7]* | *[Chờ cập nhật]* | `[09x****xxx]` | Official #7 | *[--:--]* | *[Chờ]* | *[Link Video P7]* |
 
 ---
@@ -668,7 +668,16 @@ node skills/gui-usability-tester/scripts/audit_screen_cli.js --url "http://local
 ---
 
 ## 6. Đánh giá Phản biện AI (AI Critique - 200–300 Từ)
-*(Phần dành riêng cho sinh viên tự viết 200–300 từ phản biện về những điểm AI làm sai, thiên kiến hoặc thiếu sót trong quá trình làm bài)*
+
+### Bản Tiếng Việt (273 từ — Đúng chuẩn quy định 200–300 từ)
+
+Trong quá trình thực hiện bài tập kiểm thử giao diện và đánh giá khả năng sử dụng (HW03), tôi nhận thấy AI thể hiện thế mạnh rõ rệt về tốc độ rà soát mã nguồn tĩnh nhưng bộc lộ nhiều điểm thiếu sót, thiên kiến và sai sót kỹ thuật. Thứ nhất, ở khâu thiết kế checklist (Task 1), AI bị thiên kiến chức năng nặng nề: tập trung phần lớn vào kiểm tra biểu mẫu và luồng CRUD mà bỏ qua hoàn toàn các khía cạnh phi chức năng thiết yếu như độ tương phản màu chuẩn WCAG 2.1 AA (nút "Sửa" chữ trắng nền vàng chỉ đạt `2.15:1`), thiếu thẻ nhãn `<label>` cho người khiếm thị và sự vỡ bố cục trên màn hình di động (thanh sidebar `256px` chiếm tới 62% màn hình `412px`). Thứ hai, trong kiểm thử đa trình duyệt (Task 3), AI đã mắc sai sót khi dùng bộ chọn phân biệt hoa thường với tab Mã Giảm Giá khiến điều hướng bị dừng, đồng thời gọi lệnh chụp màn hình nền làm ảnh bị đen trước khi được tôi phát hiện. AI không tự nhận biết các lỗi này vì mô hình ngôn ngữ chỉ xử lý DOM dưới dạng cây văn bản trừu tượng, không có tri giác thị giác hay cảm nhận công thái học như con người. Bài học nguyên tắc cốt lõi tôi rút ra là luôn giữ vai trò chốt chặn cuối cùng (*Human-in-the-Loop*): AI chỉ là trợ lý gia tốc, kiểm thử viên phải định hướng bằng chuẩn mực kỹ thuật và trực tiếp nghiệm thu từng giao diện.
+
+---
+
+### English Version (224 words — Strictly within the 200–300 words limit)
+
+During this GUI and usability testing assignment (HW03), collaborating with the AI agent demonstrated remarkable efficiency in static code inspection and automated test execution, yet revealed critical instances where the AI was incomplete, biased, and technically erroneous. First, in the Task 1 checklist generation phase, the AI exhibited a strong functional bias: it focused overwhelmingly on input validation boundaries and standard CRUD database flows while completely overlooking essential visual and accessibility dimensions. Specifically, it missed WCAG 2.1 AA color contrast compliance (such as the yellow Edit button with white text scoring an unacceptable `2.15:1` ratio), screen-reader label associations on pre-filled numeric inputs, and severe mobile responsive layout collapse where a fixed `256px` sidebar occupied 62% of a `412px` viewport. Second, during Task 3 cross-browser automation, the AI made technical errors by employing a case-sensitive selector for the Coupon tab that stalled UI navigation, and initially executed a background capture command that produced blank images until I actively diagnosed the failure. The AI failed to identify these defects autonomously because large language models analyze abstract DOM tokens and code structures rather than perceiving rendered spatial layouts or genuine human physical ergonomics. The fundamental principle I learned is disciplined human-in-the-loop oversight: AI serves effectively as an agile productivity accelerator, but the human tester must always direct the technical verification standards and visually validate every real-world artifact.
 
 ---
 

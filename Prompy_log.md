@@ -639,3 +639,53 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Khi có thêm kết quả của người thứ 7 trên Google Sheet, cập nhật dòng P7 để hoàn tất 100% Task 2.
 
 ---
+
+## [Prompt #26] - 2026-11-11 01:03:06
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > bạn hãy kiểm tra so với yêu cầu cảu bài tập thì tôi còn đang thiếu nhưunxg mục nào
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Rà soát đối chiếu toàn bộ các yêu cầu trong đề bài `2026.HW03.GUI Usability_En.pdf` (Mục 6 - Tasks 1..4, Mục 7 - Skills, Mục 9 - AI Audit, Mục 10 - AI Critique, Mục 11 - Anti-AI-Cheat, Mục 12 - Git Log, Mục 14 - Submission Regulations, Mục 15 - Assessment Template).
+  - Phân loại rõ: Các mục đã hoàn thành 100%, Các mục còn thiếu cần sinh viên thực hiện, và Các bước đóng gói cuối cùng trước khi nộp file zip lên Moodle.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Kiểm tra trạng thái hiện tại của workspace: `Main_report.md`, `GUI_Checklist_HW03.xlsx`, `Bug_report_link_git_hub.txt`, `screenshots/`, `skills/`, `Git_Commit_Log.txt`, `AI_Audit_Report.md`, `README.md`.
+  - Liệt kê chi tiết 5 mục còn thiếu để sinh viên nắm rõ và hoàn thiện.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bảng tổng hợp đối chiếu toàn diện (Gap Analysis Checklist) kèm hướng dẫn hoàn thành từng mục còn thiếu.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse - Rà soát tuân thủ tiêu chuẩn đồ án môn học).
+  - Bước tiếp theo: Sinh viên bổ sung 5 mục còn thiếu để đóng gói file ZIP nộp bài hoàn chỉnh.
+
+---
+
+## [Prompt #27] - 2026-11-11 11:07:21
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > viết AI critique cho tôi
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Soạn thảo đoạn văn phản biện AI bắt buộc (AI Critique) tại Mục 6 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) theo đúng yêu cầu tường minh của sinh viên và hướng dẫn tại Mục 10 của đề bài (`2026.HW03.GUI Usability_En.pdf`).
+  - Kiểm soát độ dài nghiêm ngặt trong khoảng **200–300 từ** (Bản Tiếng Việt đạt 273 từ; Bản Tiếng Anh đạt 224 từ).
+  - Trả lời đầy đủ 3 câu hỏi bắt buộc: AI sai/thiên kiến/thiếu gì, Vì sao AI không bắt được lỗi, và Bài học nguyên tắc khi cộng tác với AI.
+  - Cập nhật quy định trong [`AGENTS.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AGENTS.md), ghi nhận `Artifact #6` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), xuất lại `Git_Commit_Log.txt` và đồng bộ lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Tính toán số từ bằng lệnh script: Bản Tiếng Việt gồm 273 từ, Bản Tiếng Anh gồm 224 từ (nằm trọn vẹn trong khoảng 200–300 từ).
+  - Cập nhật Mục 6 trong [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md).
+  - Cập nhật điều khoản trong [`AGENTS.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AGENTS.md).
+  - Ghi nhận `Artifact #6` vào [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Mục 6 (AI Critique) của báo cáo đã được hoàn thiện 100% cả bản Tiếng Việt và Tiếng Anh với lập luận chặt chẽ và số từ chuẩn xác.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.3 (Analyse) & G9.4 (Collaborate - Phản biện học thuật về năng lực và giới hạn của AI trong kiểm thử phần mềm).
+  - Bước tiếp theo: Chờ kết quả người tham gia thứ 7 trên Google Sheet để hoàn tất Task 2.
+
+---
