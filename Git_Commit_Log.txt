@@ -2,20 +2,31 @@
 GIT COMMIT LOG — HW03: GUI & USABILITY TESTING (FIT@HCMUS 2026)
 Student: VĂN ĐỨC TUẤN | MSSV: 23120397 | Email: 23120397@student.hcmus.edu.vn
 Repository: https://github.com/vdt12a11/HW03
-Generated At: 2026-11-11T04:13:21.083Z
+Generated At: 2026-11-11T04:47:11.480Z
 ======================================================================
 
 ======================================================================
-Commit Hash : f6abbbdebe0b61a5dc16f889ffb0055f03a0122f
+Commit Hash : deac7ed540ed20af74c05e039c66ef4385206b17
+Author      : Admin <ductuan28122005@gmail.com>
+Date        : 2026-11-11 11:47:04 +0700
+Subject     : docs(audit): remove artifact #6 and update audit report logs
+
+ AI_Audit_Report.md                            |   1 -
+ Prompy_log.md                                 |  45 ++++++++++++++++++++++++++
+ [AI-02] - FIT@HCMUS - AI Audit Report_Vn.docx | Bin 47730 -> 62425 bytes
+ 3 files changed, 45 insertions(+), 1 deletion(-)
+
+======================================================================
+Commit Hash : 88b4a1f251b6dcd67e9735855b2e62d78db5b051
 Author      : Admin <ductuan28122005@gmail.com>
 Date        : 2026-11-11 11:13:20 +0700
 Subject     : docs: retain only Vietnamese AI Critique (273 words) in Main_report.md
 
  AI_Audit_Report.md |  2 +-
- Git_Commit_Log.txt |  8 ++++----
+ Git_Commit_Log.txt | 20 ++++++++++++++++----
  Main_report.md     | 10 +---------
  Prompy_log.md      | 24 ++++++++++++++++++++++++
- 4 files changed, 30 insertions(+), 14 deletions(-)
+ 4 files changed, 42 insertions(+), 14 deletions(-)
 
 ======================================================================
 Commit Hash : bc51041fbfa4a8fa0af14436bf6c9efd5f1565b5
