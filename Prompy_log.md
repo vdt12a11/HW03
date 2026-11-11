@@ -713,3 +713,48 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Chờ kết quả người tham gia thứ 7 trên Google Sheet để cập nhật hoàn chỉnh Task 2.
 
 ---
+
+## [Prompt #29] - 2026-11-11 11:38:00
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > xoá mục artifact 6 trong ai audit.md
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Xóa bỏ hàng `Artifact #6: Mandatory AI Critique (200–300 Words)` khỏi Bảng Kiểm toán 5 cột trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) theo yêu cầu của sinh viên.
+  - Đảm bảo Bảng Kiểm toán chỉ lưu giữ đúng 5 sản phẩm kiểm thử cốt lõi (`Artifact #1` → `Artifact #5`) phản ánh chính xác các hoạt động kỹ thuật thực tế.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chỉnh sửa [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) loại bỏ hàng Artifact #6.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Bảng kiểm toán 5 cột trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md) hiện có đúng 5 hàng tương ứng 5 artifacts kiểm thử chính thức.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Chuẩn hóa danh mục artifact kiểm thử theo chỉ định của sinh viên).
+  - Bước tiếp theo: Xuất file `Git_Commit_Log.txt` và cập nhật bản Word.
+
+---
+
+## [Prompt #30] - 2026-11-11 11:44:30
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > xuất file git commit log.txt cho tôi
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Thực thi script trích xuất toàn bộ lịch sử Git commit của repository theo định dạng văn bản chuẩn vào [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt) theo yêu cầu bắt buộc tại Mục 12 của đề bài HW03.
+  - Đồng bộ và cập nhật commit lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chạy công cụ `node skills/ai-audit-logger/scripts/export_git_log.js`.
+  - Cập nhật và xuất khẩu [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt).
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - File [`Git_Commit_Log.txt`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Git_Commit_Log.txt) đã được xuất đầy đủ với toàn bộ commit từ ngày bắt đầu dự án đến thời điểm hiện tại.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate - Quản lý quy trình kiểm thử và lịch sử version control).
+  - Bước tiếp theo: Tiến hành đồng bộ git và hoàn tất cập nhật file Word template nếu cần.
+
+---
