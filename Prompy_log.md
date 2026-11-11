@@ -689,3 +689,27 @@ Tài liệu này ghi nhận đầy đủ quá trình tương tác, chỉ đạo 
   - Bước tiếp theo: Chờ kết quả người tham gia thứ 7 trên Google Sheet để hoàn tất Task 2.
 
 ---
+
+## [Prompt #28] - 2026-11-11 11:11:48
+
+- **AI Tool:** Antigravity (Gemini 3.8 Flash / Google DeepMind)
+- **Yêu cầu của người dùng (User Prompt):**
+  > Bỏ bản tiếng anh đi
+
+- **Mục tiêu & Kế hoạch xử lý (Goal & Plan):**
+  - Xóa phần bản dịch Tiếng Anh ở Mục 6 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) theo đúng yêu cầu của người dùng, giữ lại duy nhất bản Tiếng Việt chuẩn mực dài **273 từ** (đáp ứng đúng giới hạn 200–300 từ của đề bài).
+  - Cập nhật cột (5) của `Artifact #6` trong [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md), xuất lại `Git_Commit_Log.txt` và đồng bộ lên GitHub.
+
+- **Các hành động đã thực hiện (Actions Taken):**
+  - Chỉnh sửa Mục 6 của [`Main_report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/Main_report.md) xóa tiêu đề phụ và đoạn văn Tiếng Anh.
+  - Cập nhật [`AI_Audit_Report.md`](file:///d:/Học%20Tập/Kiem%20thu%20phan%20mem/HW03/AI_Audit_Report.md).
+  - Xuất `Git_Commit_Log.txt` và thực hiện git commit, git push.
+
+- **Kết quả đầu ra của AI (AI Output / Deliverable):**
+  - Mục 6 đã được tinh giản, chỉ còn bản Tiếng Việt 273 từ ngắn gọn, súc tích và đồng nhất với ngôn ngữ toàn bài báo cáo.
+
+- **Ghi chú & Đánh giá Bloom-AI / Bước tiếp theo (Next Steps):**
+  - **Bloom-AI Level:** G9.4 (Collaborate).
+  - Bước tiếp theo: Chờ kết quả người tham gia thứ 7 trên Google Sheet để cập nhật hoàn chỉnh Task 2.
+
+---
